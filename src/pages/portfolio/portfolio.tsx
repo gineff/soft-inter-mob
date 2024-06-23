@@ -8,7 +8,7 @@ import { PortfolioIcon } from './portfolio-icon';
  */
 
 const portfolioList = portfolio.map((portfolio, index) => (
-  <PortfolioIcon portfolio={portfolio} index={index} />
+  <PortfolioIcon key={portfolio.title} portfolio={portfolio} index={index} />
 ));
 
 export const Portfolio = () => {

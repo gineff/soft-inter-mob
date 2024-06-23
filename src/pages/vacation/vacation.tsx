@@ -62,6 +62,9 @@ const Vacation = () => {
             padding: '20px 24px',
             borderWidth: '2px',
             color: '#976EEF',
+            '&:hover': {
+              borderWidth: '2px',
+            },
           }}
         >
           Смотреть все

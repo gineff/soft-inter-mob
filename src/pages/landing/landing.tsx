@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import { Main } from '@/pages/main';
 import { Portfolio } from '@/pages/portfolio';
 import { About } from '@/pages/about';
+import { Vacation } from '@/pages/vacation';
 
 const Landing = () => (
   <Container
@@ -14,6 +15,7 @@ const Landing = () => (
     <Main />
     <Portfolio />
     <About />
+    <Vacation />
   </Container>
 );
 

@@ -42,6 +42,18 @@ export const theme: Theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#FFF',
+          borderRadius: '8px',
+          //border: '1px solid rgba(255, 255, 255, 0.2)',
+          fontWeight: 400,
+          fontSize: '16px',
+          lineHeight: '19.36px',
+        },
+      },
+    },
     MuiButton: {
       variants: [
         {

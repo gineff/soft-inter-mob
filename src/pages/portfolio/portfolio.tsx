@@ -17,13 +17,18 @@ export const Portfolio = () => {
   return (
     <Container
       id="portfolio"
-      sx={{ backgroundColor: '#1B1B1B', padding: '50px 0!important', borderRadius: '40px' }}
+      sx={{
+        backgroundColor: '#1B1B1B',
+        padding: '50px 0!important',
+        borderRadius: '40px',
+      }}
     >
       <Typography
         variant="h2"
         component="h2"
         sx={{
           mb: '33px',
+          pl: '50px',
           textTransform: 'uppercase',
           fontWeight: 600,
           fontSize: '40px',
@@ -48,6 +53,7 @@ export const Portfolio = () => {
           },
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
+          pl: '50px',
         }}
       >
         {portfolioList}

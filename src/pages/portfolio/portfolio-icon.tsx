@@ -8,7 +8,7 @@ export const PortfolioIcon: FC<PortfolioIconProps> = ({ portfolio, index }) => {
 
   return (
     <IconButton
-      sx={{ padding: 0, marginLeft: isSecondEl ? '-180px' : 0 }}
+      sx={{ padding: 0, marginLeft: isSecondEl ? '-220px' : 0 }}
       key={title}
       onClick={() => console.log(content)}
     >

@@ -2,6 +2,8 @@ import { Card, CardContent, Typography, CardMedia } from '@mui/material';
 import { FC } from 'react';
 import { PostPreviewProps } from './types';
 
+/**Todo * заменить WebkitLineClamp на height */
+
 export const PostPreview: FC<PostPreviewProps> = ({
   post: { title, image, content },
 }) => {
@@ -22,7 +24,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
         alt={title}
         sx={{ height: '191px' }}
       />
-      <CardContent sx={{ p: 0, mb: 0 }}>
+      <CardContent sx={{ p: '20px 29.5px' }}>
         <Typography
           variant="h5"
           component="div"
@@ -38,6 +40,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
           variant="h5"
           component="div"
           sx={{
+            mt: '10px',
             fontWeight: 400,
             fontSize: '16px',
             lineHeight: '19.36px',

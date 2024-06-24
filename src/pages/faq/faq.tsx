@@ -2,12 +2,12 @@ import { Container, Box, Typography } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Divider from '@mui/material/Divider';
 import { styled } from '@mui/material/styles';
 import { faq } from './faq.data';
+import arrow from '@/assets/arrow.svg';
 
-const CustomExpandMoreIcon = () => <ExpandMoreIcon sx={{ color: '#ffffff' }} />;
+const Arrow = () => <img src={arrow} />;
 
 const GradientDivider = styled(Divider)(() => ({
   position: 'relative',
@@ -25,7 +25,7 @@ const GradientDivider = styled(Divider)(() => ({
   },
 }));
 
-export const About = () => {
+export const Faq = () => {
   return (
     <Container
       id="about"
@@ -60,7 +60,7 @@ export const About = () => {
               }}
             >
               <AccordionSummary
-                expandIcon={<CustomExpandMoreIcon />}
+                expandIcon={<Arrow />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
@@ -93,4 +93,4 @@ export const About = () => {
   );
 };
 
-export default About;
+export default Faq;

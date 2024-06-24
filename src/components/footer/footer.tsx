@@ -1,5 +1,4 @@
 import { Box, Grid, IconButton, Stack, Typography } from '@mui/material';
-import Logo from '../logo/logo';
 
 export const Footer = () => {
   return (

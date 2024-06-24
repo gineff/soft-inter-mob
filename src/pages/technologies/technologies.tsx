@@ -27,7 +27,12 @@ export const Technologies = () => {
   return (
     <Container
       id="technologies"
-      sx={{ display: 'flex', flexDirection: 'column', gap: '51px' }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '51px',
+        padding: '0!important',
+      }}
     >
       <Typography
         variant="h2"

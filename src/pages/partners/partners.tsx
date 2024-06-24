@@ -21,13 +21,13 @@ export const Partners = () => {
   /** ToDo сделать мобильную версию */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  /**Todo выделить Title в отдельный компонент*/
 
   return (
     <Container
       id="technologies"
-      sx={{ display: 'flex', flexDirection: 'column', gap: '51px' }}
+      sx={{ display: 'flex', flexDirection: 'column', gap: '51px', padding: '0!important' }}
     >
-      /**Todo выделить в отдельный компонент*/
       <Typography
         variant="h2"
         component="h2"
@@ -45,12 +45,13 @@ export const Partners = () => {
           display: 'flex',
           gap: '79px',
           flexWrap: isDesktop ? 'nowrap' : 'wrap',
+          justifyContent: 'center',
         }}
       >
         {technologiesList.map(({ title, icon }) => (
           <Box
             sx={{
-              flex: isDesktop ? '1 1 auto' : '1 1 27%',
+              width: isDesktop ? 'auto' : 'calc(33% - 79px)',
             }}
           >
             <Card

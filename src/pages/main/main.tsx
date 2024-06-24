@@ -27,7 +27,12 @@ export const Main = () => {
   ];
 
   return (
-    <Container id="main">
+    <Container
+      id="main"
+      sx={{
+        padding: '0!important',
+      }}
+    >
       <Card
         sx={{
           position: 'relative',

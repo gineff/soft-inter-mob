@@ -17,7 +17,7 @@ export const About = () => {
   return (
     <Container
       id="about"
-      sx={{ backgroundColor: '#1B1B1B', padding: '50px', borderRadius: '40px' }}
+      sx={{ backgroundColor: '#1B1B1B', padding: '50px!important', borderRadius: '40px' }}
     >
       <Typography
         variant="h2"

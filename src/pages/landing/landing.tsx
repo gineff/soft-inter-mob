@@ -4,7 +4,8 @@ import { Portfolio } from '@/pages/portfolio';
 import { About } from '@/pages/about';
 import { Vacation } from '@/pages/vacation';
 import { Technologies } from '@/pages/technologies';
-import { Partners } from '../partners';
+import { Partners } from '@/pages/partners';
+import { Blog } from '@/pages/blog';
 
 const Landing = () => (
   <Container
@@ -19,6 +20,7 @@ const Landing = () => (
     <About />
     <Vacation />
     <Technologies />
+    <Blog />
     <Partners />
   </Container>
 );

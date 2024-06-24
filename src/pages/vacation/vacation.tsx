@@ -36,7 +36,7 @@ const Vacation = () => {
           display: 'flex',
           flexWrap: 'wrap',
           gap: '50px',
-          height: '435px',
+          height: isDesktop ? '435px' : 'auto',
           alignContent: isDesktop ? 'flex-start' : 'stretch',
         }}
       >

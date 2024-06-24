@@ -17,7 +17,7 @@ export const Portfolio = () => {
   return (
     <Container
       id="portfolio"
-      sx={{ backgroundColor: '#1B1B1B', padding: '50px', borderRadius: '40px' }}
+      sx={{ backgroundColor: '#1B1B1B', padding: '50px 0!important', borderRadius: '40px' }}
     >
       <Typography
         variant="h2"

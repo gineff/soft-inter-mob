@@ -6,6 +6,7 @@ import { Vacation } from '@/pages/vacation';
 import { Technologies } from '@/pages/technologies';
 import { Partners } from '@/pages/partners';
 import { Blog } from '@/pages/blog';
+import { Faq } from '@/pages/faq';
 
 const Landing = () => (
   <Container
@@ -22,6 +23,7 @@ const Landing = () => (
     <Technologies />
     <Blog />
     <Partners />
+    <Faq />
   </Container>
 );
 

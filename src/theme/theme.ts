@@ -35,7 +35,13 @@ export const theme: Theme = createTheme({
         },
       },
     },
-
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#1B1B1B',
+        },
+      },
+    },
     MuiButton: {
       variants: [
         {

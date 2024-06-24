@@ -7,6 +7,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import { Anchor } from '@/components/anchor';
 
 const technologiesList = [
   { title: 'google', icon: 'google.svg' },
@@ -25,9 +26,15 @@ export const Partners = () => {
 
   return (
     <Container
-      id="technologies"
-      sx={{ display: 'flex', flexDirection: 'column', gap: '51px', padding: '0!important' }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '51px',
+        padding: '0 50px!important',
+      }}
     >
+      <Anchor id="Partners" />
+
       <Typography
         variant="h2"
         component="h2"

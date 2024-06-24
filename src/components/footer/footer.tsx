@@ -1,4 +1,5 @@
 import { Box, Grid, IconButton, Stack, Typography } from '@mui/material';
+import { Anchor } from '@components/anchor';
 
 export const Footer = () => {
   return (
@@ -30,6 +31,7 @@ export const Footer = () => {
 
         {/* Правая колонка */}
         <Grid item xs={6} textAlign="right">
+          <Anchor id="Contacts" />
           <Stack direction="column" spacing={3} sx={{ display: 'inline-flex' }}>
             <Box
               sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}

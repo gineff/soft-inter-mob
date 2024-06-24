@@ -2,6 +2,7 @@ import { Container, Box, Typography } from '@mui/material';
 import { portfolio } from './portfolio.data';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PortfolioIcon } from './portfolio-icon';
+import { Anchor } from '@/components/anchor';
 
 /**ToDO
  * API fetch("src/assets/portfolio.json")
@@ -16,13 +17,14 @@ export const Portfolio = () => {
 
   return (
     <Container
-      id="portfolio"
       sx={{
         backgroundColor: '#1B1B1B',
         padding: '50px 0!important',
         borderRadius: '40px',
       }}
     >
+      <Anchor id="Portfolio" />
+
       <Typography
         variant="h2"
         component="h2"

@@ -1,4 +1,5 @@
-import { Container, Box, Typography, Divider, Stack } from '@mui/material';
+import { Anchor } from '@/components/anchor';
+import { Box, Container, Typography, Divider, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledBlock = styled(Typography)(() => ({
@@ -16,9 +17,13 @@ const HighlightedText = styled('span')(() => ({
 export const About = () => {
   return (
     <Container
-      id="about"
-      sx={{ backgroundColor: '#1B1B1B', padding: '50px!important', borderRadius: '40px' }}
+      component="section"
+      sx={{
+        padding: '0 50px!important',
+        borderRadius: '40px',
+      }}
     >
+      <Anchor id="About" />
       <Typography
         variant="h2"
         component="h2"

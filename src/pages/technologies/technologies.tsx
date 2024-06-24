@@ -1,8 +1,8 @@
+import { Anchor } from '@/components/anchor';
 import {
   Container,
   Box,
   Typography,
-  Stack,
   CardContent,
   CardMedia,
   Card,
@@ -26,14 +26,15 @@ export const Technologies = () => {
 
   return (
     <Container
-      id="technologies"
       sx={{
         display: 'flex',
         flexDirection: 'column',
         gap: '51px',
-        padding: '0!important',
+        padding: '0 50px!important',
       }}
     >
+      <Anchor id="Technologies" />
+
       <Typography
         variant="h2"
         component="h2"

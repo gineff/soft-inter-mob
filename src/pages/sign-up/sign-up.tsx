@@ -1,12 +1,15 @@
 import { TextField, Button, Box, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Anchor } from '@/components/anchor';
 
 const GradientEllipse = styled(Box)(() => ({
-  width: '1280px',
-  height: '446px',
+  maxWidth: '1280px',
+  width: '90vw',
+  height: '0',
+  paddingBottom: '35%',
   position: 'absolute',
   top: '100px',
-  left: 0,
+  left: '0px',
   background: 'linear-gradient(to right, #84103B, #6B32E7, #3C1C81)',
   borderRadius: '50%',
   transform: 'rotate(22deg)',
@@ -16,7 +19,11 @@ const GradientEllipse = styled(Box)(() => ({
 
 const SignUp = () => {
   return (
-    <Container sx={{ position: 'relative' }}>
+    <Container
+      sx={{ position: 'relative', padding: '0!important' }}
+      component="section"
+    >
+      <Anchor id="Sign-Up" />
       <Box
         sx={{
           width: '100%',
@@ -42,10 +49,7 @@ const SignUp = () => {
           Присоединяйтесь к нашей команде
         </Typography>
 
-        <Box
-          component="form"
-          sx={{ display: 'grid', gap: '20px' }}
-        >
+        <Box component="form" sx={{ display: 'grid', gap: '20px' }}>
           <TextField type="text" label="Фамилия" variant="filled"></TextField>
           <TextField type="text" label="Имя" variant="filled"></TextField>
           <TextField type="text" label="Telegram" variant="filled"></TextField>

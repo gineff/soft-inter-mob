@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { Main } from '@/pages/main';
 import { Portfolio } from '@/pages/portfolio';
 import { About } from '@/pages/about';
@@ -12,24 +12,35 @@ import { Footer } from '@/components/footer';
 
 const Landing = () => (
   <>
-    <Container
+    <Box
+      component="main"
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '150px',
-        pb: '150px',
+        maxWidth: 'lg',
+        minWidth: 'sm',
+        width: '100%',
+        margin: '0 auto',
       }}
     >
-      <Main />
-      <Portfolio />
-      <About />
-      <Vacation />
-      <Technologies />
-      <Blog />
-      <Partners />
-      <Faq />
-      <SignUp />
-    </Container>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '150px',
+          p: 0,
+          pb: '150px',
+        }}
+      >
+        <Main />
+        <Portfolio />
+        <About />
+        <Vacation />
+        <Technologies />
+        <Blog />
+        <Partners />
+        <Faq />
+        <SignUp />
+      </Box>
+    </Box>
     <Footer />
   </>
 );

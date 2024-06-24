@@ -3,38 +3,38 @@ import type { RouteType } from './types';
 export const routes: Record<string, RouteType> = {
   main: {
     title: 'О нас',
-    path: '/',
+    path: 'About',
   },
   portfolio: {
     title: 'Портфолио',
-    path: '/portfolio',
+    path: 'Portfolio',
   },
   unit: {
     title: 'Отделы',
-    path: '/units',
+    path: 'Units',
   },
   vacations: {
     title: 'Вакансии',
-    path: '/vacations',
+    path: 'Vacations',
   },
   technologies: {
     title: 'Технологии',
-    path: '/technologies',
+    path: 'Technologies',
   },
   blog: {
     title: 'Блог',
-    path: '/blog',
+    path: 'Blog',
   },
   faq: {
     title: 'FAQ',
-    path: '/faq',
+    path: 'Faq',
   },
   partners: {
     title: 'Партнеры',
-    path: '/partners',
+    path: 'Partners',
   },
   contacts: {
     title: 'Контакты',
-    path: '/contacts',
+    path: 'Contacts',
   },
 };

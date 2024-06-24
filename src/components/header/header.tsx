@@ -23,6 +23,9 @@ export const Header = () => {
 
   const navMenu = Object.entries(routes).map(([key, { title, path }]) => (
     <Button
+      onClick={() => {
+        setOpen(false);
+      }}
       component={HashLink}
       to={`#${path}`}
       smooth
@@ -53,6 +56,7 @@ export const Header = () => {
       <AppBar
         position="fixed"
         sx={{
+          width: '100%',
           height: '113px',
           [isMobile]: { height: 'auto', minHeight: '64px' },
           backgroundColor: '#1B1B1B',
@@ -100,6 +104,8 @@ export const Header = () => {
               minWidth: 'auto',
               whiteSpace: 'nowrap',
             }}
+            component={HashLink}
+            to="#Sign-Up"
           >
             Присоединиться
           </Button>

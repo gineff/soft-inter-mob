@@ -2,17 +2,19 @@ import { Container, Box, Typography } from '@mui/material';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PostPreview } from './post-preview';
 import { posts } from './posts.data';
+import { Anchor } from '@/components/anchor';
 
 export const Blog = () => {
   const scrollRef = useHorizontalScroll();
 
   return (
     <Container
-      id="portfolio"
       sx={{
-        padding: '50px 0!important',
+        padding: '0 50px!important',
       }}
     >
+      <Anchor id="Blog" />
+
       <Typography
         variant="h2"
         component="h2"

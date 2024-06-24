@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Loader } from '@components/loader';
 import type { ProviderComponent } from './types';
 
@@ -10,9 +10,9 @@ import type { ProviderComponent } from './types';
 
 export const withRouter = (Component: ProviderComponent) => () =>
   (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={<Loader />}>
         <Component />
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );

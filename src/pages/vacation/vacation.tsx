@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { vacationsList } from './vacations.data';
 import { VacationPreview } from './vacation-preview';
+import { Anchor } from '@/components/anchor';
 
 const Vacation = () => {
   const theme = useTheme();
@@ -15,9 +16,15 @@ const Vacation = () => {
 
   return (
     <Container
-      id="vacation"
-      sx={{ display: 'flex', flexDirection: 'column', gap: '51px' }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '51px',
+        padding: '0 50px!important',
+      }}
     >
+      <Anchor id="Vacations" />
+
       <Typography
         variant="h2"
         component="h2"

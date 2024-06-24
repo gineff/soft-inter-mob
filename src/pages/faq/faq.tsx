@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 import { styled } from '@mui/material/styles';
 import { faq } from './faq.data';
 import arrow from '@/assets/arrow.svg';
+import { Anchor } from '@/components/anchor';
 
 const Arrow = () => <img src={arrow} />;
 
@@ -28,13 +29,11 @@ const GradientDivider = styled(Divider)(() => ({
 export const Faq = () => {
   return (
     <Container
-      id="about"
       sx={{
-        backgroundColor: '#1B1B1B',
-        padding: '50px!important',
-        borderRadius: '40px',
+        padding: '0 50px!important',
       }}
     >
+      <Anchor id="Faq" />
       <Typography
         variant="h2"
         component="h2"

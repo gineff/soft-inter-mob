@@ -1,4 +1,4 @@
-import { Container, Box, Typography, Modal } from '@mui/material';
+import { Container, Box, Typography, Modal, IconButton } from '@mui/material';
 import { portfolio } from './portfolio.data';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PortfolioIcon } from './portfolio-icon';
@@ -6,7 +6,7 @@ import { Anchor } from '@/components/anchor';
 import { useState, useEffect } from 'react';
 import { PortfolioCard } from './portfolio-card';
 import { Portfolio as PortfolioType } from './types';
-
+import CloseIcon from '@mui/icons-material/Close';
 /**ToDO
  * API fetch("src/assets/portfolio.json")
  */
@@ -93,8 +93,29 @@ export const Portfolio = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}
+        BackdropProps={{
+          sx: {
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(10px)',
+          },
+        }}
       >
-        <PortfolioCard portfolio={selectedItem} />
+        <Box sx={{ position: 'relative' }}>
+          <IconButton
+            aria-label="close"
+            onClick={handleClose}
+            sx={{
+              position: 'absolute',
+              right: '60px',
+              top: '40px',
+              color: '#FFF',
+              opacity: 0.4,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <PortfolioCard portfolio={selectedItem} />
+        </Box>
       </Modal>
     </>
   );

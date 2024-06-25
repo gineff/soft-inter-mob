@@ -6,6 +6,7 @@ import {
   useMediaQuery,
   Button,
   Drawer,
+  IconButton,
 } from '@mui/material';
 import { vacationsList, vacations } from './vacations.data';
 import { VacationPreview } from './vacation-preview';
@@ -17,6 +18,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { VacationCard } from './vacation-card';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Vacations: FC<VacationPageProps> = ({
   isCategoriesVisible = false,
@@ -143,7 +145,22 @@ const Vacations: FC<VacationPageProps> = ({
             },
           }}
         >
-          {selectedVacation && <VacationCard vacation={selectedVacation} />}
+          <Box sx={{ position: 'relative' }}>
+            <IconButton
+              aria-label="close"
+              onClick={handleClose}
+              sx={{
+                position: 'absolute',
+                right: '60px',
+                top: '40px',
+                color: '#FFF',
+                opacity: 0.4,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            {selectedVacation && <VacationCard vacation={selectedVacation} />}
+          </Box>
         </Drawer>
       </Suspense>
     </>

@@ -6,6 +6,7 @@ import {
   Button,
 } from '@mui/material';
 import { FC } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { VacationPreviewProps } from './types';
 
 export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
@@ -32,6 +33,8 @@ export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
       </CardContent>
       <CardActions sx={{ p: 0 }}>
         <Button
+          to={{ search: `?vacation=${title}` }}
+          component={RouterLink}
           variant="contained"
           sx={{
             fontWeight: 600,

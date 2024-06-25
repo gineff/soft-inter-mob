@@ -1,31 +1,95 @@
-import {
-  Card,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-} from '@mui/material';
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import { FC } from 'react';
-import { VacationCardProps } from './types';
+import { BlockProps, BlockContentProps, VacationCardProps } from './types';
+import { SignUpForm } from '@/components/sign-up-form';
 
-export const VacationCard: FC<VacationCardProps> = ({ vacation }) => {
-  const { title } = vacation;
+const BlockContent: FC<BlockContentProps> = ({ content, component }) => (
+  <Typography
+    variant="body2"
+    component={component}
+    sx={{
+      fontWeight: 600,
+      fontSize: '16px',
+      lineHeight: '24.73px',
+    }}
+  >
+    {content}
+  </Typography>
+);
+
+const Block: FC<BlockProps> = ({ title, content }) => {
+  const isContentArray = Array.isArray(content);
   return (
-    <Card
-      sx={{
-        backgroundColor: '#1B1B1B',
-        padding: '24px',
-        borderRadius: '30px',
-      }}
-    >
-      <CardContent>
-        <Typography variant="h5" component="div">
+    <Box>
+      {title && (
+        <Typography
+          variant="h3"
+          component="h3"
+          sx={{
+            fontWeight: 600,
+            fontSize: '16px',
+            lineHeight: '24.73px',
+          }}
+        >
           {title}
         </Typography>
-      </CardContent>
-      <CardActions>
-        <Button variant="contained">Подробнее</Button>
-      </CardActions>
-    </Card>
+      )}
+      {!isContentArray && <BlockContent component="div" content={content} />}
+      {isContentArray && (
+        <ul>
+          {content.map((item) => (
+            <BlockContent component="li" content={item} />
+          ))}
+        </ul>
+      )}
+    </Box>
+  );
+};
+
+export const VacationCard: FC<VacationCardProps> = ({
+  vacation: {
+    title,
+    details,
+    description,
+    duty,
+    requirements,
+    optional,
+    offer,
+  },
+}) => {
+  //const { title, details, description, duty  } = vacation;
+  return (
+    <Box>
+      <Card
+        sx={{
+          backgroundColor: '#1B1B1B',
+          padding: '40px 60px',
+          borderRadius: '40px',
+        }}
+      >
+        <CardContent>
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 600,
+              fontSize: '32px',
+              lineHeight: '38.73px',
+              mb: 3,
+            }}
+          >
+            {title}
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <Block content={description} />
+            <Block title="Обязанности" content={duty} />
+            <Block title="Требования" content={requirements} />
+            <Block title="Будет плюсом" content={optional} />
+            <Block title="Что мы предлагаем" content={offer} />
+          </Box>
+          <SignUpForm />
+        </CardContent>
+      </Card>
+    </Box>
   );
 };

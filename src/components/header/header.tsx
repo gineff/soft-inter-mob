@@ -27,7 +27,7 @@ export const Header = () => {
         setOpen(false);
       }}
       component={HashLink}
-      to={`#${path}`}
+      to={`/#${path}`}
       smooth
       key={key}
       sx={{
@@ -105,7 +105,7 @@ export const Header = () => {
               whiteSpace: 'nowrap',
             }}
             component={HashLink}
-            to="#Sign-Up"
+            to="/#Sign-Up"
           >
             Присоединиться
           </Button>

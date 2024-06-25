@@ -1,3 +1,5 @@
+import { VacationType } from "./types";
+
 export const categories = [
   'HR',
   'GameDev',
@@ -41,7 +43,7 @@ export const vacationsList = {
   'Level-Designer': ['Дизайн'],
 };
 
-export const vacations = [
+export const vacations: VacationType[] = [
   {
     title: '3D animator',
     category: ['Дизайн'],

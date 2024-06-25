@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { Main } from '@/pages/main';
 import { Portfolio } from '@/pages/portfolio';
 import { About } from '@/pages/about';
-import { Vacation } from '@/pages/vacation';
+import { Vacations } from '@/pages/vacations';
 import { Technologies } from '@/pages/technologies';
 import { Partners } from '@/pages/partners';
 import { Blog } from '@/pages/blog';
@@ -33,7 +33,7 @@ const Landing = () => (
         <Main />
         <Portfolio />
         <About />
-        <Vacation itemCount={4} />
+        <Vacations itemCount={4} />
         <Technologies />
         <Blog />
         <Partners />

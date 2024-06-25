@@ -14,7 +14,7 @@ import { FC, useState } from 'react';
 import { Categories } from './categories';
 import { Link } from 'react-router-dom';
 
-const Vacation: FC<VacationPageProps> = ({
+const Vacations: FC<VacationPageProps> = ({
   isCategoriesVisible = false,
   itemCount,
 }) => {
@@ -103,4 +103,4 @@ const Vacation: FC<VacationPageProps> = ({
   );
 };
 
-export default Vacation;
+export default Vacations;

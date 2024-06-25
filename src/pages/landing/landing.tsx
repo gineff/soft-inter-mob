@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { Main } from '@/pages/main';
-import { Portfolio } from '@/pages/portfolio';
+import { Portfolio, PortfolioCard } from '@/pages/portfolio';
 import { About } from '@/pages/about';
 import { Vacations } from '@/pages/vacations';
 import { Technologies } from '@/pages/technologies';
@@ -9,6 +9,7 @@ import { Blog } from '@/pages/blog';
 import { Faq } from '@/pages/faq';
 import { SignUp } from '@/pages/sign-up';
 import { Footer } from '@/components/footer';
+import { portfolio } from '../portfolio/portfolio.data';
 
 const Landing = () => (
   <>
@@ -31,6 +32,7 @@ const Landing = () => (
         }}
       >
         <Main />
+        <PortfolioCard portfolio={portfolio[0]} />
         <Portfolio />
         <About />
         <Vacations itemCount={4} />

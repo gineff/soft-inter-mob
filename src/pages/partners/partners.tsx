@@ -68,7 +68,7 @@ export const Partners = () => {
             >
               <CardMedia
                 component="img"
-                src={`/src/assets/${icon}`}
+                src={`/${icon}`}
                 alt={title}
                 sx={{}}
               />

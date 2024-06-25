@@ -58,7 +58,7 @@ export const Technologies = () => {
           <Card sx={{ backgroundColor: 'inherit' }}>
             <CardMedia
               component="img"
-              src={`/src/assets/${icon}`}
+              src={`/${icon}`}
               alt={title}
               height="200"
               width="200"

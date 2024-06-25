@@ -12,7 +12,7 @@ export const PortfolioIcon: FC<PortfolioIconProps> = ({ portfolio, index }) => {
       key={title}
       onClick={() => console.log(content)}
     >
-      <img src={`/src/assets/${icon}`} width="180" />
+      <img src={`/${icon}`} width="180" />
     </IconButton>
   );
 };

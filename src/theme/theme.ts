@@ -3,6 +3,7 @@ import { createTheme, Theme } from '@mui/material/styles';
 export const majesticPurple = '#6B32E7';
 export const vividBurgundy = '#84103B';
 export const deepIndigo = '#3C1C81';
+const backgroundColor = '#010101';
 
 export const theme: Theme = createTheme({
   breakpoints: {
@@ -31,14 +32,14 @@ export const theme: Theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: '#010101',
+          backgroundColor,
         },
       },
     },
     MuiAccordion: {
       styleOverrides: {
         root: {
-          backgroundColor: '#010101',
+          backgroundColor,
         },
       },
     },
@@ -57,18 +58,24 @@ export const theme: Theme = createTheme({
     MuiButton: {
       variants: [
         {
-          props: { variant: 'gradient' },
+          props: { variant: 'active' },
           style: {
-            fontSize: '20px',
-            lineHeight: '24px',
-            textTransform: 'none',
-            background: `linear-gradient(135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
-            borderRadius: 24,
-            padding: '32px 38px',
-            color: '#FFFFFF',
+            backgroundColor: '#F0F0FF',
+            color: `${backgroundColor}!important`,
           },
         },
       ],
+      styleOverrides: {
+        root: {
+          '&.MuiButton-active': {
+            '&:hover': {
+              backgroundColor: '#F0F0FF',
+              color: `${backgroundColor}!important`,
+            },
+          },
+        },
+      },
+    
     },
   },
 });

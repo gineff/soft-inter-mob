@@ -33,7 +33,7 @@ const Landing = () => (
         <Main />
         <Portfolio />
         <About />
-        <Vacation />
+        <Vacation itemCount={4} />
         <Technologies />
         <Blog />
         <Partners />

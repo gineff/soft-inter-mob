@@ -1,4 +1,4 @@
-export const category = [
+export const categories = [
   'HR',
   'GameDev',
   'Маркетинг',

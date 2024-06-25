@@ -9,7 +9,8 @@ export const Router: FC = () => (
     <Route path="/" element={<BaseLayout />}>
       <Route index element={<Landing />} />
       <Route path="/posts" element={<h1>Posts</h1>} />
-      <Route path="/vacations" element={<Vacation />} />
+      <Route path="/vacations" element={<Vacation isCategoriesVisible/>} />
+      <Route path="/vacation/:name" element={<Vacation isCategoriesVisible/>} />
     </Route>
     <Route path="*" element={<h1>Page not found</h1>} />
   </Routes>

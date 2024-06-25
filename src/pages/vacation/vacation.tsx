@@ -15,7 +15,7 @@ import { Categories } from './categories';
 import { Link } from 'react-router-dom';
 
 const Vacation: FC<VacationPageProps> = ({
-  isCategoriesVisible = true,
+  isCategoriesVisible = false,
   itemCount,
 }) => {
   const theme = useTheme();

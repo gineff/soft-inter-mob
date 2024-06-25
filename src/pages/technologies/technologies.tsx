@@ -6,8 +6,8 @@ import {
   CardContent,
   CardMedia,
   Card,
-  useMediaQuery,
-  useTheme,
+  //useMediaQuery,
+  //useTheme,
 } from '@mui/material';
 
 const technologiesList = [
@@ -19,10 +19,10 @@ const technologiesList = [
 ];
 
 export const Technologies = () => {
-  const theme = useTheme();
+  //const theme = useTheme();
   /** ToDo сделать мобильную версию */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  //const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
     <Container

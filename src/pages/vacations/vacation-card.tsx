@@ -49,7 +49,6 @@ const Block: FC<BlockProps> = ({ title, content }) => {
 export const VacationCard: FC<VacationCardProps> = ({
   vacation: {
     title,
-    details,
     description,
     duty,
     requirements,

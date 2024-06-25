@@ -6,10 +6,11 @@ import {
   Button,
 } from '@mui/material';
 import { FC } from 'react';
-import { VacationCardProps } from './types';
+//import { VacationCardProps } from './types';
 
-export const VacationCard: FC<VacationCardProps> = ({ vacation }) => {
-  const { title } = vacation;
+export const VacationCard: FC = () => {
+  //const { title } = vacation;
+  const title = 'title';
   return (
     <Card
       sx={{

@@ -13,15 +13,14 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export const Portfolio = () => {
   const [open, setOpen] = useState(false);
-  const [selectedItem, setSelectedPortfolio] = useState<null | PortfolioType>(
-    null
-  );
+  const [SelectedPortfolio, setSelectedPortfolio] =
+    useState<null | PortfolioType>(null);
 
   useEffect(() => {
-    if (selectedItem) {
+    if (SelectedPortfolio) {
       setOpen(true);
     }
-  }, [selectedItem]);
+  }, [SelectedPortfolio]);
 
   const scrollRef = useHorizontalScroll();
 
@@ -114,7 +113,7 @@ export const Portfolio = () => {
           >
             <CloseIcon />
           </IconButton>
-          <PortfolioCard portfolio={selectedItem} />
+          <PortfolioCard portfolio={SelectedPortfolio} />
         </Box>
       </Modal>
     </>

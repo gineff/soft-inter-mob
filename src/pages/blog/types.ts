@@ -7,8 +7,9 @@ export type PostType = {
 
 export type PostPreviewProps = {
   post: PostType;
+  handleSelectPost: (post: PostType) => void;
 };
 
 export type PostCardProps = {
-  post: PostType;
+  post: PostType | null;
 };

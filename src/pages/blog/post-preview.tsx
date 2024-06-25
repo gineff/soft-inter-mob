@@ -5,8 +5,10 @@ import { PostPreviewProps } from './types';
 /**Todo * заменить WebkitLineClamp на height */
 
 export const PostPreview: FC<PostPreviewProps> = ({
-  post: { title, image, content },
+  post,
+  handleSelectPost,
 }) => {
+  const { title, image, content } = post;
   return (
     <Card
       sx={{
@@ -16,7 +18,9 @@ export const PostPreview: FC<PostPreviewProps> = ({
         flex: '0 0 auto',
         width: '379px',
         height: '407px',
+        cursor: 'pointer',
       }}
+      onClick={() => handleSelectPost(post)}
     >
       <CardMedia
         component="img"
@@ -27,7 +31,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
       <CardContent sx={{ p: '20px 29.5px' }}>
         <Typography
           variant="h5"
-          component="div"
+          component="h5"
           sx={{
             fontWeight: 600,
             fontSize: '20px',

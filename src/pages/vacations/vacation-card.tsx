@@ -47,14 +47,7 @@ const Block: FC<BlockProps> = ({ title, content }) => {
 };
 
 export const VacationCard: FC<VacationCardProps> = ({
-  vacation: {
-    title,
-    description,
-    duty,
-    requirements,
-    optional,
-    offer,
-  },
+  vacation: { title, description, duty, requirements, optional, offer },
 }) => {
   //const { title, details, description, duty  } = vacation;
   return (
@@ -62,11 +55,11 @@ export const VacationCard: FC<VacationCardProps> = ({
       <Card
         sx={{
           backgroundColor: '#1B1B1B',
-          padding: '40px 60px',
+          padding: '70px 60px',
           borderRadius: '40px',
         }}
       >
-        <CardContent>
+        <CardContent sx={{ p: 0 }}>
           <Typography
             variant="h5"
             component="h2"

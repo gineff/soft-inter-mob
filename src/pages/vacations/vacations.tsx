@@ -5,8 +5,10 @@ import {
   Typography,
   useMediaQuery,
   Button,
-  Drawer,
   IconButton,
+  DialogContent,
+  Dialog,
+  DialogTitle,
 } from '@mui/material';
 import { vacationsList, vacations } from './vacations.data';
 import { VacationPreview } from './vacation-preview';
@@ -125,27 +127,33 @@ const Vacations: FC<VacationPageProps> = ({
         )}
       </Container>
       <Suspense fallback={<></>}>
-        <Drawer
-          anchor="top"
-          PaperProps={{ style: { maxWidth: '780px' } }}
+        <Dialog
+          onClose={handleClose}
+          open={!!selectedVacation}
+          PaperProps={{
+            style: {
+              backgroundColor: 'unset',
+              maxWidth: '741px',
+              overflow: 'unset',
+            },
+          }}
           BackdropProps={{
             sx: {
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
               backdropFilter: 'blur(10px)',
             },
           }}
-          onClose={handleClose}
-          open={!!selectedVacation}
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            '.MuiDrawer-paper': {
-              backgroundColor: 'unset',
-              position: 'relative',
+            '& .MuiDialog-container': {
+              overflowY: 'auto',
+              '& .MuiDialogContent-root': {
+                p: 0,
+                overflow: 'unset',
+              },
             },
           }}
         >
-          <Box sx={{ position: 'relative' }}>
+          <DialogTitle sx={{ p: 0, m: 0 }}>
             <IconButton
               aria-label="close"
               onClick={handleClose}
@@ -159,9 +167,11 @@ const Vacations: FC<VacationPageProps> = ({
             >
               <CloseIcon />
             </IconButton>
+          </DialogTitle>
+          <DialogContent>
             {selectedVacation && <VacationCard vacation={selectedVacation} />}
-          </Box>
-        </Drawer>
+          </DialogContent>
+        </Dialog>
       </Suspense>
     </>
   );

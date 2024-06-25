@@ -20,7 +20,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
     >
       <CardMedia
         component="img"
-        src={`/assets/${image}`}
+        src={`/${image}`}
         alt={title}
         sx={{ height: '191px' }}
       />

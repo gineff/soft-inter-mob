@@ -1,6 +1,7 @@
-import { TextField, Button, Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Anchor } from '@/components/anchor';
+import { SignUpForm } from '@/components/sign-up-form';
 
 const GradientEllipse = styled(Box)(() => ({
   maxWidth: '1280px',
@@ -49,23 +50,8 @@ const SignUp = () => {
           Присоединяйтесь к нашей команде
         </Typography>
 
-        <Box component="form" sx={{ display: 'grid', gap: '20px' }}>
-          <TextField type="text" label="Фамилия" variant="filled"></TextField>
-          <TextField type="text" label="Имя" variant="filled"></TextField>
-          <TextField type="text" label="Telegram" variant="filled"></TextField>
-          <TextField type="text" label="e-mail" variant="filled"></TextField>
-          <Button
-            variant="contained"
-            sx={{
-              height: '64px',
-              fontWeight: 600,
-              fontSize: '20px',
-              lineHeight: '24.2px',
-            }}
-          >
-            Присоединиться
-          </Button>
-        </Box>
+        <SignUpForm />
+
       </Box>
       <GradientEllipse />
     </Container>

@@ -1,0 +1,1 @@
+import{r as l}from"./index-BbBC1wuP.js";function c(){const r=l.useRef(null);return l.useEffect(()=>{const e=r.current;if(e){const o=t=>{t.deltaY!==0&&(t.preventDefault(),e.scrollTo({left:e.scrollLeft+t.deltaY,behavior:"smooth"}))};return e.addEventListener("wheel",o),()=>e.removeEventListener("wheel",o)}},[]),r}export{c as u};

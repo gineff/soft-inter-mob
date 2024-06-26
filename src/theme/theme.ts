@@ -5,6 +5,12 @@ export const vividBurgundy = '#84103B';
 export const deepIndigo = '#3C1C81';
 const backgroundColor = '#010101';
 
+const mixinFont16 = {
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '19.36px',
+}
+
 export const theme: Theme = createTheme({
   breakpoints: {
     values: {
@@ -38,7 +44,7 @@ export const theme: Theme = createTheme({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-    }
+    },
   },
   components: {
     MuiAccordion: {
@@ -51,11 +57,9 @@ export const theme: Theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
+          ...mixinFont16,
           backgroundColor: '#FFF',
           borderRadius: '8px',
-          fontWeight: 400,
-          fontSize: '16px',
-          lineHeight: '19.36px',
         },
       },
     },
@@ -64,9 +68,7 @@ export const theme: Theme = createTheme({
         {
           props: { variant: 'font16' },
           style: {
-            fontWeight: 400,
-            fontSize: '16px',
-            lineHeight: '19.36px',
+            ...mixinFont16
           },
         },
         {
@@ -94,7 +96,7 @@ export const theme: Theme = createTheme({
           },
         },
       ],
-    },  
+    },
     MuiButton: {
       variants: [
         {
@@ -106,14 +108,23 @@ export const theme: Theme = createTheme({
         },
       ],
       styleOverrides: {
-        root: {
+        root: ({ ownerState: ovnerState }) => ({
+          ...(ovnerState.className?.includes('MuiButton-active') && {
+            '&:hover': {
+              backgroundColor: '#F0F0FF',
+              color: `${backgroundColor}!important`,
+            },
+          }),
           '&.MuiButton-active': {
             '&:hover': {
               backgroundColor: '#F0F0FF',
               color: `${backgroundColor}!important`,
             },
           },
-        },
+          ...mixinFont16,
+          borderRadius: '8px',
+          padding: '20px 24px',
+        }),
       },
     },
   },

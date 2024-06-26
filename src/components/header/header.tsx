@@ -9,9 +9,7 @@ import Logo from '../logo/logo';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Suspense, useState } from 'react';
-import AdaptiveVideo from '../adaptive-video/adaptive-video';
-import { InfoPanel } from '../info-panel';
-
+import { SignUpButton } from '../sing-up-button/sing-up-button';
 export const Header = () => {
   const [open, setOpen] = useState(false);
 
@@ -35,7 +33,7 @@ export const Header = () => {
       sx={{
         margin: 0,
         padding: 0,
-        color: 'white',
+        color: 'text.primary',
         display: 'block',
         minWidth: 'auto',
         whiteSpace: 'nowrap',
@@ -90,20 +88,7 @@ export const Header = () => {
           >
             {navMenu}
           </Stack>
-          <Button
-            variant="contained"
-            sx={{
-              [isMobileTheme]: { display: 'none' },
-              px: 3,
-              py: '20px',
-              minWidth: 'auto',
-              whiteSpace: 'nowrap',
-            }}
-            component={HashLink}
-            to="/#Sign-Up"
-          >
-            <Typography variant="font16">Присоединиться</Typography>
-          </Button>
+          < SignUpButton/>
           <IconButton
             sx={{
               color: '#fff',
@@ -138,21 +123,7 @@ export const Header = () => {
           )}
         </Suspense>
       </AppBar>
-      <Box
-        sx={(theme) => ({
-          position: 'relative',
-          ...theme.mixins.centredCol,
-        })}
-      >
-        <AdaptiveVideo src="/video/master.m3u8" />
-        <InfoPanel
-          sx={{
-            px: '50px',
-            [isDesktopTheme]: { bottom: '50px', position: 'absolute' },
-            [isMobileTheme]: { mt: '50px', position: 'relative' },
-          }}
-        />
-      </Box>
+
     </Box>
   );
 };

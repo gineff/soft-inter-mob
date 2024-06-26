@@ -101,7 +101,6 @@ const Vacations: FC<VacationPageProps> = ({
                 fontWeight: 600,
                 fontSize: '25px',
                 lineHeight: '30.26px',
-                padding: '20px 24px',
                 borderWidth: '2px',
                 color: '#976EEF',
                 '&:hover': {

@@ -26,8 +26,6 @@ export const Categories: FC<CategoriesProps> = ({ active, setActive }) => {
             borderRadius: '40px',
             padding: '20px 32px',
             fontWeight: 600,
-            fontSize: '16px',
-            lineHeight: '19.36px',
             '&:hover': {
               borderWidth: '2px',
             },

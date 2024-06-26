@@ -31,8 +31,6 @@ export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
             fontWeight: 600,
             fontSize: '21px',
             lineHeight: '25.41px',
-            borderRadius: '8px',
-            padding: '20px 24px',
           }}
         >
           Подробнее

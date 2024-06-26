@@ -1,85 +1,27 @@
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  IconButton,
-  Box,
-  Grid,
-} from '@mui/material';
-import { useRef } from 'react';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { InfoBlock } from '@/components/info-block';
+import AdaptiveVideo from '@/components/adaptive-video/adaptive-video';
+import { InfoPanel } from '@/components/info-panel';
+import { Box, useTheme } from '@mui/material';
 
 export const Main = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
-
-  const info: string[] = [
-    'Выпущено более 300 проектов',
-    'Команда более 400+ профессионалов',
-    '90% проектов занимают в чартах позиции ТОП 50',
-  ];
+  const theme = useTheme();
 
   return (
-    <Container
-      id="main"
-      sx={{
-        padding: '0!important',
-      }}
+    <Box
+      sx={(theme) => ({
+        position: 'relative',
+        ...theme.mixins.centredCol,
+      })}
     >
-      <Card
+      <AdaptiveVideo src="/video/master.m3u8" />
+      <InfoPanel
         sx={{
-          position: 'relative',
-          width: '100%',
+          position: 'absolute',
+          bottom: '50px',
+          px: '50px',
+          [theme.breakpoints.down('lg')]: { mt: '50px', position: 'relative' },
         }}
-      >
-        <CardMedia
-          component="video"
-          src="https://www.w3schools.com/html/mov_bbb.mp4"
-          controls
-          ref={videoRef}
-          sx={{
-            '&::-webkit-media-controls': {
-              display: 'none',
-            },
-            '&::-webkit-media-controls-enclosure': {
-              display: 'none',
-            },
-          }}
-        />
-        <IconButton
-          onClick={handlePlay}
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: 'white',
-            fontSize: '64px',
-            zIndex: 1,
-          }}
-        >
-          <PlayCircleOutlineIcon fontSize="inherit" />
-        </IconButton>
-        <CardContent sx={{ position: 'absolute', bottom: 0 }}>
-          <Box>
-            <Grid container spacing={2}>
-              {info.map((text) => (
-                <Grid key={text} item xs={12} md={4}>
-                  <InfoBlock>{text}</InfoBlock>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-        </CardContent>
-      </Card>
-    </Container>
+      />
+    </Box>
   );
 };
 

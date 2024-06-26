@@ -2,7 +2,6 @@ import {
   useTheme,
   Container,
   Box,
-  Typography,
   useMediaQuery,
   Button,
   IconButton,
@@ -21,6 +20,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { VacationCard } from './vacation-card';
 import CloseIcon from '@mui/icons-material/Close';
+import { SectionTitle } from '@/components/section-title/section-title';
 
 const Vacations: FC<VacationPageProps> = ({
   isCategoriesVisible = false,
@@ -64,19 +64,7 @@ const Vacations: FC<VacationPageProps> = ({
         }}
       >
         <Anchor id="Vacations" />
-
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            textTransform: 'uppercase',
-            fontWeight: 600,
-            fontSize: '40px',
-            lineHeight: '60px',
-          }}
-        >
-          Вакансии
-        </Typography>
+        <SectionTitle>Вакансии</SectionTitle>
 
         {isCategoriesVisible && (
           <Categories active={activeCategory} setActive={setActiveCategory} />

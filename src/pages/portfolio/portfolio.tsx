@@ -1,4 +1,4 @@
-import { Container, Box, Typography, Modal, IconButton } from '@mui/material';
+import { Container, Box, Modal, IconButton } from '@mui/material';
 import { portfolio } from './portfolio.data';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PortfolioIcon } from './portfolio-icon';
@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { PortfolioCard } from './portfolio-card';
 import { Portfolio as PortfolioType } from './types';
 import CloseIcon from '@mui/icons-material/Close';
+import { SectionTitle } from '@/components/section-title/section-title';
 /**ToDO
  * API fetch("src/assets/portfolio.json")
  */
@@ -47,21 +48,7 @@ export const Portfolio = () => {
         }}
       >
         <Anchor id="Portfolio" />
-
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            mb: '33px',
-            pl: '50px',
-            textTransform: 'uppercase',
-            fontWeight: 600,
-            fontSize: '40px',
-            lineHeight: '60px',
-          }}
-        >
-          Портфолио
-        </Typography>
+        <SectionTitle sx={{ mb: '33px', pl: '50px' }}>Портфолио</SectionTitle>
 
         <Box
           ref={scrollRef}

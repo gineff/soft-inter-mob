@@ -15,6 +15,7 @@ import { useState } from 'react';
 import { PostType } from './types';
 import CloseIcon from '@mui/icons-material/Close';
 import { PostCard } from './post-card';
+import { SectionTitle } from '@/components/section-title/section-title';
 
 export const Blog = () => {
   const scrollRef = useHorizontalScroll();
@@ -39,19 +40,7 @@ export const Blog = () => {
       >
         <Anchor id="Blog" />
 
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            mb: '33px',
-            textTransform: 'uppercase',
-            fontWeight: 600,
-            fontSize: '40px',
-            lineHeight: '60px',
-          }}
-        >
-          Блог
-        </Typography>
+        <SectionTitle sx={{ mb: '33px' }}>Блог</SectionTitle>
 
         <Box
           ref={scrollRef}

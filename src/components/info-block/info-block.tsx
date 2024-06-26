@@ -16,10 +16,8 @@ export const InfoBlock: FC<InfoBlockProps> = memo(({ children }) => {
       }}
     >
       <Typography
-        variant="body1"
+        variant="font20"
         sx={{
-          fontSize: '20px',
-          lineHeight: '24px',
           textTransform: 'none',
           color: '#fff',
           textAlign: 'center',

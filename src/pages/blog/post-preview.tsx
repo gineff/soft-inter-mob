@@ -28,25 +28,14 @@ export const PostPreview: FC<PostPreviewProps> = ({
         sx={{ height: '191px' }}
       />
       <CardContent sx={{ p: '20px 29.5px' }}>
-        <Typography
-          variant="h5"
-          component="h5"
-          sx={{
-            fontWeight: 600,
-            fontSize: '20px',
-            lineHeight: '24.2px',
-          }}
-        >
+        <Typography variant="font20" component="h3">
           {title}
         </Typography>
         <Typography
-          variant="h5"
+          variant="font16"
           component="div"
           sx={{
             mt: '10px',
-            fontWeight: 400,
-            fontSize: '16px',
-            lineHeight: '19.36px',
             display: '-webkit-box',
             overflow: 'hidden',
             textOverflow: 'ellipsis',

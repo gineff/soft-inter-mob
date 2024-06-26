@@ -61,7 +61,7 @@ export const Main = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             color: 'white',
-            fontSize: 64,
+            fontSize: '64px',
             zIndex: 1,
           }}
         >

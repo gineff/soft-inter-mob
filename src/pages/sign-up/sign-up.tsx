@@ -37,14 +37,11 @@ const SignUp = () => {
         }}
       >
         <Typography
-          variant="h1"
+          variant="font32"
           sx={{
             width: '100%',
             mb: '50px',
             textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '32px',
-            lineHeight: '38.73px',
           }}
         >
           Присоединяйтесь к нашей команде

@@ -2,7 +2,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Button, Stack, useTheme } from '@mui/material';
+import { Button, Stack, Typography, useTheme } from '@mui/material';
 import { routes } from '@/router/routes';
 import { HashLink } from 'react-router-hash-link';
 import Logo from '../logo/logo';
@@ -37,9 +37,6 @@ export const Header = () => {
         padding: 0,
         color: 'white',
         display: 'block',
-        fontSize: '16px',
-        fontWeight: 400,
-        lineHeight: '19px',
         minWidth: 'auto',
         whiteSpace: 'nowrap',
         [isMobileTheme]: {
@@ -49,7 +46,7 @@ export const Header = () => {
         },
       }}
     >
-      {title}
+      <Typography variant="font16">{title}</Typography>
     </Button>
   ));
 
@@ -99,16 +96,13 @@ export const Header = () => {
               [isMobileTheme]: { display: 'none' },
               px: 3,
               py: '20px',
-              fontSize: '16px',
-              fontWeight: 400,
-              lineHeight: '19px',
               minWidth: 'auto',
               whiteSpace: 'nowrap',
             }}
             component={HashLink}
             to="/#Sign-Up"
           >
-            Присоединиться
+            <Typography variant="font16">Присоединиться</Typography>
           </Button>
           <IconButton
             sx={{
@@ -144,7 +138,12 @@ export const Header = () => {
           )}
         </Suspense>
       </AppBar>
-      <Box sx={{ position: 'relative' }}>
+      <Box
+        sx={(theme) => ({
+          position: 'relative',
+          ...theme.mixins.centredCol,
+        })}
+      >
         <AdaptiveVideo src="/video/master.m3u8" />
         <InfoPanel
           sx={{

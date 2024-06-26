@@ -1,4 +1,5 @@
 import { Anchor } from '@/components/anchor';
+import { SectionTitle } from '@/components/section-title/section-title';
 import {
   Container,
   Box,
@@ -34,19 +35,7 @@ export const Technologies = () => {
       }}
     >
       <Anchor id="Technologies" />
-
-      <Typography
-        variant="h2"
-        component="h2"
-        sx={{
-          textTransform: 'uppercase',
-          fontWeight: 600,
-          fontSize: '40px',
-          lineHeight: '60px',
-        }}
-      >
-        Технологии
-      </Typography>
+      <SectionTitle>Технологии</SectionTitle>
 
       <Box
         sx={{
@@ -69,14 +58,7 @@ export const Technologies = () => {
               }}
             />
             <CardContent sx={{ padding: '12px 0' }}>
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: '20px',
-                  lineHeight: '24.2px',
-                  textAlign: 'center',
-                }}
-              >
+              <Typography variant="font20" sx={{ textAlign: 'center' }}>
                 {title}
               </Typography>
             </CardContent>

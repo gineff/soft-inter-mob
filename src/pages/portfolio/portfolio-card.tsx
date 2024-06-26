@@ -45,26 +45,15 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({ portfolio }) => {
           />
           <Box>
             <Typography
+              variant="font32"
               component="h4"
-              variant="h4"
               sx={{
                 pb: '12px',
-                fontWeight: 600,
-                fontSize: '32px',
-                lineHeight: '38.73px',
               }}
             >
               {title}
             </Typography>
-            <Typography
-              sx={{
-                fontWeight: 400,
-                fontSize: '16px',
-                lineHeight: '19.36px',
-              }}
-            >
-              {content}
-            </Typography>
+            <Typography variant="font16">{content}</Typography>
           </Box>
         </Stack>
       </CardContent>

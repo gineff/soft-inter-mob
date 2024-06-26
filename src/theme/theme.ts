@@ -32,6 +32,14 @@ export const theme: Theme = createTheme({
       default: '#010101',
     },
   },
+  mixins: {
+    centredCol: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
+  },
   components: {
     MuiAccordion: {
       styleOverrides: {
@@ -45,13 +53,48 @@ export const theme: Theme = createTheme({
         root: {
           backgroundColor: '#FFF',
           borderRadius: '8px',
-          //border: '1px solid rgba(255, 255, 255, 0.2)',
           fontWeight: 400,
           fontSize: '16px',
           lineHeight: '19.36px',
         },
       },
     },
+    MuiTypography: {
+      variants: [
+        {
+          props: { variant: 'font16' },
+          style: {
+            fontWeight: 400,
+            fontSize: '16px',
+            lineHeight: '19.36px',
+          },
+        },
+        {
+          props: { variant: 'font20' },
+          style: {
+            fontWeight: 600,
+            fontSize: '20px',
+            lineHeight: '24.2px',
+          },
+        },
+        {
+          props: { variant: 'font32' },
+          style: {
+            fontWeight: 600,
+            fontSize: '32px',
+            lineHeight: '38.73px',
+          },
+        },
+        {
+          props: { variant: 'font40' },
+          style: {
+            fontWeight: 600,
+            fontSize: '40px',
+            lineHeight: '60px',
+          },
+        },
+      ],
+    },  
     MuiButton: {
       variants: [
         {

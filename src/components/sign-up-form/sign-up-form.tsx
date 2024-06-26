@@ -1,4 +1,4 @@
-import { TextField, Button, Box } from '@mui/material';
+import { TextField, Button, Box, Typography } from '@mui/material';
 
 export const SignUpForm = () => {
   return (
@@ -7,16 +7,8 @@ export const SignUpForm = () => {
       <TextField type="text" label="Имя" variant="filled"></TextField>
       <TextField type="text" label="Telegram" variant="filled"></TextField>
       <TextField type="text" label="e-mail" variant="filled"></TextField>
-      <Button
-        variant="contained"
-        sx={{
-          height: '64px',
-          fontWeight: 600,
-          fontSize: '20px',
-          lineHeight: '24.2px',
-        }}
-      >
-        Присоединиться
+      <Button variant="contained" sx={{ height: '64px' }}>
+        <Typography variant="font20">Присоединиться</Typography>
       </Button>
     </Box>
   );

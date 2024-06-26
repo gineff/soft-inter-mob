@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import { faq } from './faq.data';
 import arrow from '@/assets/arrow.svg';
 import { Anchor } from '@/components/anchor';
+import { SectionTitle } from '@/components/section-title/section-title';
 
 const Arrow = () => <img src={arrow} />;
 
@@ -34,19 +35,7 @@ export const Faq = () => {
       }}
     >
       <Anchor id="Faq" />
-      <Typography
-        variant="h2"
-        component="h2"
-        sx={{
-          mb: '33px',
-          textTransform: 'uppercase',
-          fontWeight: 600,
-          fontSize: '40px',
-          lineHeight: '60px',
-        }}
-      >
-        FAQ
-      </Typography>
+      <SectionTitle sx={{ mb: '33px' }}>FAQ</SectionTitle>
 
       <Box sx={{ width: '100%' }}>
         {faq.map(({ title, content }) => (
@@ -63,24 +52,10 @@ export const Faq = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography
-                  sx={{
-                    fontWeight: 600,
-                    fontSize: '32px',
-                    lineHeight: '38.73px',
-                  }}
-                >
-                  {title}
-                </Typography>
+                <Typography variant="font32">{title}</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography
-                  sx={{
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '19.36px',
-                  }}
-                >
+                <Typography variant="font16" component="p">
                   {content}
                 </Typography>
               </AccordionDetails>

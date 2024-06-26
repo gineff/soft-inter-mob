@@ -18,15 +18,7 @@ export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
       }}
     >
       <CardContent sx={{ p: 0, mb: 2 }}>
-        <Typography
-          variant="h5"
-          component="div"
-          sx={{
-            fontWeight: 600,
-            fontSize: '32px',
-            lineHeight: '38.73px',
-          }}
-        >
+        <Typography variant="font32" component="h2">
           {title}
         </Typography>
       </CardContent>

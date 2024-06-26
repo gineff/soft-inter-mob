@@ -4,15 +4,7 @@ import { BlockProps, BlockContentProps, VacationCardProps } from './types';
 import { SignUpForm } from '@/components/sign-up-form';
 
 const BlockContent: FC<BlockContentProps> = ({ content, component }) => (
-  <Typography
-    variant="body2"
-    component={component}
-    sx={{
-      fontWeight: 600,
-      fontSize: '16px',
-      lineHeight: '24.73px',
-    }}
-  >
+  <Typography variant="font16" component={component}>
     {content}
   </Typography>
 );
@@ -22,15 +14,7 @@ const Block: FC<BlockProps> = ({ title, content }) => {
   return (
     <Box>
       {title && (
-        <Typography
-          variant="h3"
-          component="h3"
-          sx={{
-            fontWeight: 600,
-            fontSize: '16px',
-            lineHeight: '24.73px',
-          }}
-        >
+        <Typography variant="font16" component="h5">
           {title}
         </Typography>
       )}
@@ -59,16 +43,7 @@ export const VacationCard: FC<VacationCardProps> = ({
         }}
       >
         <CardContent sx={{ p: 0 }}>
-          <Typography
-            variant="h5"
-            component="h2"
-            sx={{
-              fontWeight: 600,
-              fontSize: '32px',
-              lineHeight: '38.73px',
-              mb: 3,
-            }}
-          >
+          <Typography variant="font32" component="h2" sx={{ mb: 3 }}>
             {title}
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

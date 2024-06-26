@@ -8,6 +8,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { Anchor } from '@/components/anchor';
+import { SectionTitle } from '@/components/section-title/section-title';
 
 const technologiesList = [
   { title: 'google', icon: 'google.svg' },
@@ -34,19 +35,8 @@ export const Partners = () => {
       }}
     >
       <Anchor id="Partners" />
+      <SectionTitle>Партнеры</SectionTitle>
 
-      <Typography
-        variant="h2"
-        component="h2"
-        sx={{
-          textTransform: 'uppercase',
-          fontWeight: 600,
-          fontSize: '40px',
-          lineHeight: '60px',
-        }}
-      >
-        Партнеры
-      </Typography>
       <Box
         sx={{
           display: 'flex',
@@ -66,12 +56,7 @@ export const Partners = () => {
                 backgroundColor: 'inherit',
               }}
             >
-              <CardMedia
-                component="img"
-                src={`/${icon}`}
-                alt={title}
-                sx={{}}
-              />
+              <CardMedia component="img" src={`/${icon}`} alt={title} sx={{}} />
             </Card>
           </Box>
         ))}

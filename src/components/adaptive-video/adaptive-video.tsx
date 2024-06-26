@@ -11,6 +11,7 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     if (Hls.isSupported()) {
@@ -32,12 +33,17 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
 
   const handlePlayPause = () => {
     if (videoRef.current) {
-      if (videoRef.current?.paused) {
-        videoRef.current.play();
+      if (videoRef.current.muted) {
+        videoRef.current.muted = false;
+        setIsMuted(false);
       } else {
-        videoRef.current.pause();
+        if (videoRef.current.paused) {
+          videoRef.current.play();
+        } else {
+          videoRef.current.pause();
+        }
+        setIsPlaying(!videoRef.current.paused);
       }
-      setIsPlaying(!videoRef.current.paused);
     }
   };
 
@@ -75,13 +81,17 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
           height: '168px',
           cursor: 'pointer',
           backgroundImage: `url(${
-            isPlaying ? '/images/pause-video.svg' : '/images/play-video.svg'
+            isMuted
+              ? '/images/mute.svg'
+              : isPlaying
+              ? '/images/pause-video.svg'
+              : '/images/play-video.svg'
           })`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: {
-            lg: isHovered ? 1 : isPlaying ? 0 : 1,
-            xs: isPlaying ? 0 : 1,
+            lg: isMuted ? 1 : isHovered ? 1 : isPlaying ? 0 : 1,
+            xs: isMuted ? 1 : isPlaying ? 0 : 1,
           },
           transition: 'opacity 0.4s ease-in-out',
         }}

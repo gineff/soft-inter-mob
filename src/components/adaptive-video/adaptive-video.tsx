@@ -1,16 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { AdaptiveVideoProps } from './type';
 
-interface AdaptiveVideoProps {
-  src: string;
-}
-
-const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({ src }) => {
+export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
+  src,
+  isHovered,
+}) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const theme = useTheme()
+  const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
-  
+  const [isPlaying, setIsPlaying] = useState(true);
+
   useEffect(() => {
     if (Hls.isSupported()) {
       const hls = new Hls();
@@ -18,19 +19,31 @@ const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({ src }) => {
         hls.loadSource(src);
         hls.attachMedia(videoRef.current);
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          videoRef.current?.play();
+          //videoRef.current?.play();
         });
       }
     } else if (videoRef.current?.canPlayType('application/vnd.apple.mpegurl')) {
       videoRef.current.src = src;
       videoRef.current.addEventListener('loadedmetadata', () => {
-        videoRef.current?.play();
+        //videoRef.current?.play();
       });
     }
   }, [src]);
 
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (videoRef.current?.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+      setIsPlaying(!videoRef.current.paused);
+    }
+  };
+
   return (
     <Box
+      onClick={handlePlayPause}
       sx={{
         marginTop: { lg: '56px', md: '28px', sm: '28px' },
         display: 'flex',
@@ -44,7 +57,7 @@ const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({ src }) => {
     >
       <video
         ref={videoRef}
-        controls
+        autoPlay
         muted
         style={{
           width: '100%',
@@ -52,6 +65,53 @@ const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({ src }) => {
           objectFit: 'cover',
         }}
       />
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '168px',
+          height: '168px',
+          cursor: 'pointer',
+          backgroundImage: `url(${
+            isPlaying ? '/images/pause-video.svg' : '/images/play-video.svg'
+          })`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: {
+            lg: isHovered ? 1 : isPlaying ? 0 : 1,
+            xs: isPlaying ? 0 : 1,
+          },
+          transition: 'opacity 0.4s ease-in-out',
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, calc(-50% - 150px))',
+          width: '636px',
+          height: '97px',
+          textAlign: 'center',
+          opacity: {
+            lg: isHovered ? 1 : isPlaying ? 0 : 1,
+            xs: isPlaying ? 0 : 1,
+          },
+          transition: 'opacity 0.4s ease-in-out',
+        }}
+      >
+        <Typography
+          sx={{
+            fontWeight: 600,
+            fontSize: '80px',
+            lineHeight: '96.82px',
+          }}
+        >
+          SOFTINTERMOB
+        </Typography>
+      </Box>
     </Box>
   );
 };

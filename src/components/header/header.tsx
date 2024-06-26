@@ -2,51 +2,22 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Button, Stack, Typography, useTheme } from '@mui/material';
-import { routes } from '@/router/routes';
-import { HashLink } from 'react-router-hash-link';
+import { useMediaQuery, useTheme } from '@mui/material';
 import Logo from '../logo/logo';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Suspense, useState } from 'react';
 import { SignUpButton } from '../sing-up-button/sing-up-button';
+import { NavMenu } from '../nav-menu';
 export const Header = () => {
   const [open, setOpen] = useState(false);
 
   const theme = useTheme();
-  const isMobileTheme = theme.breakpoints.down('lg');
-  const isDesktopTheme = theme.breakpoints.up('lg');
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   const handleToggleMenu = () => {
     setOpen(!open);
   };
-
-  const navMenu = Object.entries(routes).map(([key, { title, path }]) => (
-    <Button
-      onClick={() => {
-        setOpen(false);
-      }}
-      component={HashLink}
-      to={`/#${path}`}
-      smooth
-      key={key}
-      sx={{
-        margin: 0,
-        padding: 0,
-        color: 'text.primary',
-        display: 'block',
-        minWidth: 'auto',
-        whiteSpace: 'nowrap',
-        [isMobileTheme]: {
-          fontSize: '18px',
-          fontWeight: 500,
-          lineHeight: '21.78px',
-        },
-      }}
-    >
-      <Typography variant="font16">{title}</Typography>
-    </Button>
-  ));
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -54,8 +25,7 @@ export const Header = () => {
         position="fixed"
         sx={{
           width: '100%',
-          height: '113px',
-          [isMobileTheme]: { height: 'auto', minHeight: '64px' },
+          height: { lg: '113px', xs: '64px' },
           backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
@@ -67,7 +37,7 @@ export const Header = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            [isMobileTheme]: { justifyContent: 'space-between' },
+            justifyContent: 'space-between',
             height: '100%',
             px: '50px',
           }}
@@ -76,54 +46,33 @@ export const Header = () => {
             <Logo />
           </IconButton>
 
-          <Stack
-            direction="row"
-            sx={{
-              display: 'flex',
-              [isMobileTheme]: { display: 'none' },
-              flexGrow: 1,
-              ml: 4,
-              gap: '20px',
-            }}
-          >
-            {navMenu}
-          </Stack>
-          < SignUpButton/>
-          <IconButton
-            sx={{
-              color: '#fff',
-              [isDesktopTheme]: { display: 'none' },
-              '& .MuiSvgIcon-root': {
-                width: 40,
-                height: 40,
-              },
-            }}
-            edge="start"
-            onClick={handleToggleMenu}
-          >
-            {open ? <CloseIcon /> : <MenuIcon />}
-          </IconButton>
+          {isDesktop ? (
+            <>
+              <NavMenu component="stack" />
+              <SignUpButton />
+            </>
+          ) : (
+            <IconButton
+              sx={{
+                color: '#fff',
+                '& .MuiSvgIcon-root': {
+                  width: 40,
+                  height: 40,
+                },
+              }}
+              edge="start"
+              onClick={handleToggleMenu}
+            >
+              {open ? <CloseIcon /> : <MenuIcon />}
+            </IconButton>
+          )}
         </Toolbar>
         <Suspense fallback={<></>}>
           {open && (
-            <Box
-              sx={{
-                margin: '20px',
-                display: 'flex',
-                flexDirection: 'column',
-                flexWrap: 'wrap',
-                alignSelf: 'flex-start',
-                height: '243px',
-                rowGap: '28px',
-                columnGap: '83px',
-              }}
-            >
-              {navMenu}
-            </Box>
+            <NavMenu component="box" handleClose={() => setOpen(false)} />
           )}
         </Suspense>
       </AppBar>
-
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 import { AdaptiveVideo } from '@/components/adaptive-video';
 import { InfoPanel } from '@/components/info-panel';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { useState } from 'react';
 
 export const Main = () => {

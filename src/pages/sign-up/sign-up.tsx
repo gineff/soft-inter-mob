@@ -21,6 +21,7 @@ const GradientEllipse = styled(Box)(() => ({
 const SignUp = () => {
   return (
     <Container
+      id="sign-up"
       sx={{ position: 'relative', padding: '0!important' }}
       component="section"
     >

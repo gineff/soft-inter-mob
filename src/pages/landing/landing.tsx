@@ -9,10 +9,12 @@ import { Blog } from '@/pages/blog';
 import { Faq } from '@/pages/faq';
 import { SignUp } from '@/pages/sign-up';
 import { Footer } from '@/components/footer';
+import { StickedButton } from '@/components/sticked-button';
 
 const Landing = () => (
   <>
     <Main />
+    <StickedButton />
     <Box
       component="main"
       sx={{

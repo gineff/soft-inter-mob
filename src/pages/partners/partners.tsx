@@ -1,7 +1,6 @@
 import {
   Container,
   Box,
-  Typography,
   CardMedia,
   Card,
   useMediaQuery,

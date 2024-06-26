@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { routes } from '@/router/routes';
-import { Box, Button, Stack, } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 import { HashLink } from 'react-router-hash-link';
 import { NavMenuProps } from './type';
 
@@ -52,6 +52,8 @@ export const NavMenu: FC<NavMenuProps> = ({
   return (
     <Box
       sx={{
+        width: 'lg',
+        backgroundColor: 'background.paper',
         margin: '20px',
         display: 'flex',
         flexDirection: 'column',

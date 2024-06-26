@@ -25,7 +25,7 @@ export const Header = () => {
         position="fixed"
         sx={{
           width: '100%',
-          height: { lg: '113px', xs: '64px' },
+          height: { lg: '113px', xs: 'auto' },
           backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
@@ -39,6 +39,7 @@ export const Header = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             height: '100%',
+            minHeight: '64px',
             px: '50px',
           }}
         >

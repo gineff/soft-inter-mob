@@ -32,7 +32,7 @@ const SignUp = () => {
           marginRight: 'auto',
           padding: '100px 150px',
           maxWidth: '780px',
-          backgroundColor: '#1B1B1B',
+          backgroundColor: 'background.paper',
           borderRadius: '40px',
         }}
       >
@@ -51,7 +51,6 @@ const SignUp = () => {
         </Typography>
 
         <SignUpForm />
-
       </Box>
       <GradientEllipse />
     </Container>

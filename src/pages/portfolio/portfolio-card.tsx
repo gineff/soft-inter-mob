@@ -20,7 +20,6 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({ portfolio }) => {
     <Card
       sx={{
         maxWidth: { lg: '980px' },
-        backgroundColor: '#1B1B1B',
         borderRadius: '40px',
         padding: '70px 60px',
         display: 'flex',

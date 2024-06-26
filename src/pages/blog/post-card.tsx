@@ -19,7 +19,6 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
     <Box sx={{ width: { lg: '781px', md: '781px' } }}>
       <Card
         sx={{
-          backgroundColor: '#1B1B1B',
           padding: '70px 60px',
           borderRadius: '40px',
         }}

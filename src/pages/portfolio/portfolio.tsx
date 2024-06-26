@@ -41,7 +41,7 @@ export const Portfolio = () => {
     <>
       <Container
         sx={{
-          backgroundColor: '#1B1B1B',
+          backgroundColor: 'background.paper',
           padding: '50px 0!important',
           borderRadius: '40px',
         }}

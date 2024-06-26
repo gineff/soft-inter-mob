@@ -59,7 +59,7 @@ export const Header = () => {
           width: '100%',
           height: '113px',
           [isMobile]: { height: 'auto', minHeight: '64px' },
-          backgroundColor: '#1B1B1B',
+          backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
         }}

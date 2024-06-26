@@ -12,7 +12,6 @@ export const PostPreview: FC<PostPreviewProps> = ({
   return (
     <Card
       sx={{
-        backgroundColor: '#1B1B1B',
         padding: '0',
         borderRadius: '40px',
         flex: '0 0 auto',

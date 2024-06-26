@@ -13,7 +13,6 @@ export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
   return (
     <Card
       sx={{
-        backgroundColor: '#1B1B1B',
         padding: '36px 54px',
         borderRadius: '30px',
       }}

@@ -27,15 +27,13 @@ export const theme: Theme = createTheme({
     },
     primary: { main: majesticPurple },
     secondary: { main: vividBurgundy },
+    background: {
+      paper: '#1B1B1B', 
+      default: '#010101', 
+    },
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundColor,
-        },
-      },
-    },
+
     MuiAccordion: {
       styleOverrides: {
         root: {

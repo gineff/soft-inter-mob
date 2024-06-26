@@ -16,7 +16,7 @@ export const Footer = () => {
         height: '286px',
         padding: '100px',
         pt: '50px',
-        backgroundColor: '#1B1B1B',
+        backgroundColor: 'background.paper',
         borderRadius: '40px 40px 0 0',
         color: '#fff',
         py: 4,

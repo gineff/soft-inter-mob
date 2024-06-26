@@ -14,7 +14,6 @@ export const VacationCard: FC = () => {
   return (
     <Card
       sx={{
-        backgroundColor: '#1B1B1B',
         padding: '24px',
         borderRadius: '30px',
       }}

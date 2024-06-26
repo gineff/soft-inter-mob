@@ -9,13 +9,15 @@ import Logo from '../logo/logo';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Suspense, useState } from 'react';
+import AdaptiveVideo from '../adaptive-video/adaptive-video';
+import { InfoPanel } from '../info-panel';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
 
   const theme = useTheme();
-  const isMobile = theme.breakpoints.down('lg');
-  const isDesktop = theme.breakpoints.up('lg');
+  const isMobileTheme = theme.breakpoints.down('lg');
+  const isDesktopTheme = theme.breakpoints.up('lg');
 
   const handleToggleMenu = () => {
     setOpen(!open);
@@ -40,7 +42,7 @@ export const Header = () => {
         lineHeight: '19px',
         minWidth: 'auto',
         whiteSpace: 'nowrap',
-        [isMobile]: {
+        [isMobileTheme]: {
           fontSize: '18px',
           fontWeight: 500,
           lineHeight: '21.78px',
@@ -58,7 +60,7 @@ export const Header = () => {
         sx={{
           width: '100%',
           height: '113px',
-          [isMobile]: { height: 'auto', minHeight: '64px' },
+          [isMobileTheme]: { height: 'auto', minHeight: '64px' },
           backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
@@ -70,7 +72,7 @@ export const Header = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            [isMobile]: { justifyContent: 'space-between' },
+            [isMobileTheme]: { justifyContent: 'space-between' },
             height: '100%',
             px: '50px',
           }}
@@ -83,7 +85,7 @@ export const Header = () => {
             direction="row"
             sx={{
               display: 'flex',
-              [isMobile]: { display: 'none' },
+              [isMobileTheme]: { display: 'none' },
               flexGrow: 1,
               ml: 4,
               gap: '20px',
@@ -94,10 +96,9 @@ export const Header = () => {
           <Button
             variant="contained"
             sx={{
-              [isMobile]: { display: 'none' },
+              [isMobileTheme]: { display: 'none' },
               px: 3,
               py: '20px',
-              color: 'white',
               fontSize: '16px',
               fontWeight: 400,
               lineHeight: '19px',
@@ -112,7 +113,7 @@ export const Header = () => {
           <IconButton
             sx={{
               color: '#fff',
-              [isDesktop]: { display: 'none' },
+              [isDesktopTheme]: { display: 'none' },
               '& .MuiSvgIcon-root': {
                 width: 40,
                 height: 40,
@@ -143,6 +144,16 @@ export const Header = () => {
           )}
         </Suspense>
       </AppBar>
+      <Box sx={{ position: 'relative' }}>
+        <AdaptiveVideo src="/video/master.m3u8" />
+        <InfoPanel
+          sx={{
+            px: '50px',
+            [isDesktopTheme]: { bottom: '50px', position: 'absolute' },
+            [isMobileTheme]: { mt: '50px', position: 'relative' },
+          }}
+        />
+      </Box>
     </Box>
   );
 };

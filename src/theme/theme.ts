@@ -28,12 +28,11 @@ export const theme: Theme = createTheme({
     primary: { main: majesticPurple },
     secondary: { main: vividBurgundy },
     background: {
-      paper: '#1B1B1B', 
-      default: '#010101', 
+      paper: '#1B1B1B',
+      default: '#010101',
     },
   },
   components: {
-
     MuiAccordion: {
       styleOverrides: {
         root: {
@@ -73,7 +72,6 @@ export const theme: Theme = createTheme({
           },
         },
       },
-    
     },
   },
 });

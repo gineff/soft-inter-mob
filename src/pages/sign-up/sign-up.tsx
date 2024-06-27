@@ -31,7 +31,7 @@ const SignUp = () => {
           width: '100%',
           marginLeft: 'auto',
           marginRight: 'auto',
-          padding: '100px 150px',
+          padding: { lg: '100px 150px', sm: '50px 20px', xs: '30px 12px' },
           maxWidth: '780px',
           backgroundColor: 'background.paper',
           borderRadius: '40px',
@@ -43,6 +43,7 @@ const SignUp = () => {
             width: '100%',
             mb: '50px',
             textAlign: 'center',
+            wordWrap: 'break-word',
           }}
         >
           Присоединяйтесь к нашей команде

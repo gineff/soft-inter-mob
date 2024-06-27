@@ -45,7 +45,9 @@ export const Footer = () => {
               sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}
             >
               <img src={Email} alt="email" width="32" />
-              <Typography>SOFTINTERMOB@techspaceapp.com</Typography>
+              <Typography sx={{ wordBreak: 'break-word' }}>
+                SOFTINTERMOB@techspaceapp.com
+              </Typography>
             </Box>
             <Box
               sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}

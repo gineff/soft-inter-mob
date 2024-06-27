@@ -1,25 +1,12 @@
 import { FC, memo } from 'react';
-import { Link as MuiLink, Icon } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
-import logo from '@/assets/logo.svg';
+import { Link as MuiLink, LinkProps } from '@mui/material';
+import { HashLink } from 'react-router-hash-link';
+import { Icon } from '@components/icon';
 
-const Logo: FC = memo(() => {
+export const Logo: FC<LinkProps> = memo(({ sx }) => {
   return (
-    <MuiLink
-      component={RouterLink}
-      to={'/'}
-      underline="none"
-      alignItems="end"
-      display="flex"
-    >
-      <Icon
-        sx={{
-          width: 'auto',
-          height: 34,
-        }}
-      >
-        <img src={logo} alt="logo" style={{ width: '100%' }} />
-      </Icon>
+    <MuiLink component={HashLink} to={'/'} sx={{ ...sx }}>
+      <Icon type="logo" />
     </MuiLink>
   );
 });

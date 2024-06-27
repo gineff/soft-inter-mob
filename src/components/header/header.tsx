@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { useMediaQuery, useTheme } from '@mui/material';
-import Logo from '../logo/logo';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Suspense, useState } from 'react';
+import { Logo } from '@components/logo';
 import { SignUpButton } from '../sing-up-button/sing-up-button';
 import { NavMenu } from '../nav-menu';
 export const Header = () => {

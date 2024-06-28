@@ -9,7 +9,7 @@ const mixinFont16 = {
   fontWeight: 400,
   fontSize: '16px',
   lineHeight: '19.36px',
-}
+};
 
 export const theme: Theme = createTheme({
   breakpoints: {
@@ -17,7 +17,7 @@ export const theme: Theme = createTheme({
       xs: 0, // Extra-small devices (portrait phones, less than 600px)
       sm: 600, // Small devices (landscape phones, 600px and up)
       md: 900, // Medium devices (tablets, 900px and up)
-      lg: 1280, // Large devices (desktops, 1200px and up)
+      lg: 1295, // 1280 + 15 scrollbar Large devices (desktops, 1200px and up)
       xl: 1536, // Extra-large devices (large desktops, 1536px and up)
     },
   },
@@ -68,7 +68,7 @@ export const theme: Theme = createTheme({
         {
           props: { variant: 'font16' },
           style: {
-            ...mixinFont16
+            ...mixinFont16,
           },
         },
         {

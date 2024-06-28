@@ -10,14 +10,7 @@ import {
   //useMediaQuery,
   //useTheme,
 } from '@mui/material';
-
-const technologiesList = [
-  { title: 'IOS (Swift)', icon: 'swift.png' },
-  { title: 'Android (Kotlin)', icon: 'kotlin.png' },
-  { title: 'Unity C#', icon: 'c.png' },
-  { title: 'PHP', icon: 'php.png' },
-  { title: 'Symfony', icon: 'symphony.png' },
-];
+import technologies from '@/assets/json/technologies.json';
 
 export const Technologies = () => {
   //const theme = useTheme();
@@ -39,19 +32,21 @@ export const Technologies = () => {
       <Box
         sx={{
           display: 'flex',
-          gap: '45px',
+          flexWrap: 'wrap',
+          margin: '0 auto',
+          gap: { md: '45px', xs: '20px' },
+          width: { lg: '100%', md: '450px', xs: '350px' },
         }}
       >
-        {technologiesList.map(({ title, icon }) => (
+        {technologies.map(({ title, icon }) => (
           <Card sx={{ backgroundColor: 'inherit' }}>
             <CardMedia
               component="img"
-              src={`/${icon}`}
+              src={`/images/${icon}`}
               alt={title}
-              height="200"
-              width="200"
               sx={{
-                backgroundColor: '#1B1B1B',
+                width: { md: '200px', xs: '165px' },
+                backgroundColor: 'background.paper',
                 borderRadius: '24px',
                 border: '1px solid rgb(255 255 255 / 20%)',
               }}

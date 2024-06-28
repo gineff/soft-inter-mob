@@ -42,7 +42,6 @@ export const NavMenu: FC<NavMenuProps> = ({
           ml: 4,
           gap: '20px',
         }}
-        onClick={handleClose}
       >
         {links}
       </Stack>
@@ -63,6 +62,7 @@ export const NavMenu: FC<NavMenuProps> = ({
         rowGap: '28px',
         columnGap: '83px',
       }}
+      onClick={handleClose}
     >
       {links}
     </Box>

@@ -43,9 +43,9 @@ export const Header = () => {
             px: '50px',
           }}
         >
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <Logo />
-          </IconButton>
+
+            <Logo sx={{  width: '155px', height: '34px' }} />
+
 
           {isDesktop ? (
             <>

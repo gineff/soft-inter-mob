@@ -45,7 +45,7 @@ export const Footer = () => {
             spacing={5}
             sx={{
               order: { lg: 2, xs: 3 },
-              [theme.breakpoints.down('lg')]: { mt: '50px!important' },
+              [theme.breakpoints.down('lg')]: { mt: '40px!important' },
             }}
           >
             <Icon type="telegram" />

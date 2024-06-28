@@ -3,6 +3,8 @@ import Hls from 'hls.js';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { AdaptiveVideoProps } from './type';
 
+const ControlOpacity = '0.4';
+
 export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
   src,
   isHovered,
@@ -90,8 +92,8 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: {
-            lg: isMuted ? 1 : isHovered ? 1 : isPlaying ? 0 : 1,
-            xs: isMuted ? 1 : isPlaying ? 0 : 1,
+            lg: isMuted ? ControlOpacity : isHovered ? ControlOpacity : isPlaying ? 0 : ControlOpacity,
+            xs: isMuted ? ControlOpacity : isPlaying ? 0 : ControlOpacity,
           },
           transition: 'opacity 0.4s ease-in-out',
         }}

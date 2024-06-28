@@ -30,7 +30,6 @@ export const Technologies = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '51px',
         padding: '0 50px!important',
       }}
     >

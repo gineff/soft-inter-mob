@@ -59,7 +59,6 @@ const Vacations: FC<VacationPageProps> = ({
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '51px',
           padding: '0 50px!important',
         }}
       >
@@ -74,7 +73,7 @@ const Vacations: FC<VacationPageProps> = ({
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '50px',
+            gap: { lg: '50px', xs: '30px' },
             alignContent: isDesktop ? 'flex-start' : 'stretch',
           }}
         >
@@ -92,7 +91,13 @@ const Vacations: FC<VacationPageProps> = ({
         </Box>
 
         {itemCount && (
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mt: { lg: '50px', xs: '30px' },
+            }}
+          >
             <Button
               variant="outlined"
               component={Link}

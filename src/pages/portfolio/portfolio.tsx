@@ -1,5 +1,4 @@
 import { Container, Box, Modal, IconButton } from '@mui/material';
-import { portfolio } from './portfolio.data';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PortfolioIcon } from './portfolio-icon';
 import { Anchor } from '@/components/anchor';
@@ -8,6 +7,7 @@ import { PortfolioCard } from './portfolio-card';
 import { Portfolio as PortfolioType } from './types';
 import CloseIcon from '@mui/icons-material/Close';
 import { SectionTitle } from '@/components/section-title/section-title';
+import { portfolio } from './portfolio.data';
 /**ToDO
  * API fetch("src/assets/portfolio.json")
  */
@@ -53,7 +53,7 @@ export const Portfolio = () => {
         <Box
           ref={scrollRef}
           sx={{
-            height: '570px',
+            height: { lg: '570px', xs: '450px' },
             overflow: 'auto',
             display: 'flex',
             flexFlow: 'column wrap',

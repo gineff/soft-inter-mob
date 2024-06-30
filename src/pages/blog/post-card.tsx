@@ -2,19 +2,20 @@ import {
   Box,
   Card,
   CardContent,
-  Typography,
   CardMedia,
   CardHeader,
+  useTheme,
 } from '@mui/material';
 import { FC } from 'react';
 import { PostCardProps } from './types';
 
 export const PostCard: FC<PostCardProps> = ({ post }) => {
+  const theme = useTheme();
   if (!post) {
     return null;
   }
-
   const { title, image, content } = post;
+
   return (
     <Box sx={{ width: { lg: '781px', md: '781px' } }}>
       <Card
@@ -31,17 +32,15 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
           sx={{ height: 'auto' }}
         />
         <CardContent sx={{ px: 0 }}>
-          <Typography
-            variant="font16"
+          <Box
             component="div"
+            dangerouslySetInnerHTML={{ __html: content }}
             sx={{
               mt: '10px',
-              display: '-webkit-box',
               overflow: 'hidden',
+              ...theme.mixins.centredCol,
             }}
-          >
-            {content}
-          </Typography>
+          ></Box>
         </CardContent>
       </Card>
     </Box>

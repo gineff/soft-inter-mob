@@ -8,16 +8,18 @@ import {
 } from '@mui/material';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PostPreview } from './post-preview';
-import { posts } from './posts.data';
+//import { posts } from './posts.data';
 import { Anchor } from '@/components/anchor';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PostType } from './types';
 import CloseIcon from '@mui/icons-material/Close';
 import { PostCard } from './post-card';
 import { SectionTitle } from '@/components/section-title/section-title';
+import { fetchPosts } from '@/api/staticAPI';
 
 export const Blog = () => {
   const scrollRef = useHorizontalScroll();
+  const [posts, setPosts] = useState<PostType[]>([]);
   const [open, setOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState<null | PostType>(null);
 
@@ -29,6 +31,15 @@ export const Blog = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const loadPosts = async () => {
+    const fetchedPosts = await fetchPosts();
+    setPosts(fetchedPosts);
+  };
+
+  useEffect(() => {
+    loadPosts();
+  }, []);
 
   return (
     <>

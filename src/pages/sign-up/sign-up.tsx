@@ -39,6 +39,7 @@ const SignUp = () => {
       >
         <Typography
           variant="font32"
+          component="h2"
           sx={{
             width: '100%',
             mb: '50px',

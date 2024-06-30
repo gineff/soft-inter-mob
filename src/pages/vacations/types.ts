@@ -1,13 +1,15 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export type VacationType = {
-  title: string;
-  category: string[];
+  id: number,
+  position: Position;
+  department: Department;
   description: string;
-  details: string;
-  duty: string[];
-  requirements: string[];
-  optional: string[];
+  responsibilities: string[];
+  requirements: {
+    mandatory?: string[];
+    preferred?: string[];
+  };
   offer: string[];
 };
 
@@ -15,24 +17,42 @@ export type VacationCardProps = {
   vacation: VacationType;
 };
 
-export type VacationPreviewProps = Pick<VacationType, 'title'>;
+export type VacationPreviewProps = Pick<VacationType, 'position'>;
 
 export type VacationPageProps = {
   itemCount?: number;
   isCategoriesVisible?: boolean;
 };
 
-export type CategoriesProps = {
+export type DepartmentsProps = {
   active: string;
   setActive: Dispatch<SetStateAction<string>>;
 };
 
 export type BlockProps = {
   title?: string;
-  content: string | string[];
+  content?: string | string[];
 };
 
 export type BlockContentProps = {
   content: string;
   component: 'div' | 'li';
 };
+
+export type Position = string
+
+export type Department =
+  | 'Video production'
+  | 'Development'
+  | 'Project Manager'
+  | 'Design'
+  | 'Администрирование'
+  | 'Юридический'
+  | 'HR'
+  | 'QA'
+  | 'Маркетинг'
+  | 'GameDev';
+
+export type PositionDepartmentPair = [Position, Department];
+
+export type VacationsResponse = VacationType[]

@@ -10,7 +10,7 @@ import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { VacationPreviewProps } from './types';
 
-export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
+export const VacationPreview: FC<VacationPreviewProps> = ({ position }) => {
   const theme = useTheme();
 
   return (
@@ -33,14 +33,14 @@ export const VacationPreview: FC<VacationPreviewProps> = ({ title }) => {
             },
           }}
         >
-          {title}
+          {position}
         </Typography>
       </CardContent>
       <CardActions
         sx={{ p: 0, mt: 2, [theme.breakpoints.down('lg')]: { mt: '40px' } }}
       >
         <Button
-          to={{ search: `?vacation=${title}` }}
+          to={{ search: `?position=${position}` }}
           component={RouterLink}
           variant="contained"
           sx={{

@@ -15,7 +15,7 @@ export const routes: Record<string, RouteType> = {
   },
   vacations: {
     title: 'Вакансии',
-    path: 'Vacations',
+    path: 'vacations',
   },
   technologies: {
     title: 'Технологии',

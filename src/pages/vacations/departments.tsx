@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import { CategoriesProps } from './types';
+import { DepartmentsProps } from './types';
 import { categories } from './vacations.data';
 import { Box, Button } from '@mui/material';
 
-export const Categories: FC<CategoriesProps> = ({ active, setActive }) => {
+export const Departments: FC<DepartmentsProps> = ({ active, setActive }) => {
   const allCategories = ['Все', ...categories];
-  console.log('allCategories', allCategories);
   return (
     <Box
       sx={{

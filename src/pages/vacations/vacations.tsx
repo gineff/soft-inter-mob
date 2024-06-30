@@ -1,8 +1,6 @@
 import {
-  useTheme,
   Container,
   Box,
-  useMediaQuery,
   Button,
   IconButton,
   DialogContent,
@@ -27,8 +25,6 @@ const Vacations: FC<VacationPageProps> = ({
   itemCount,
 }) => {
   const navigate = useNavigate();
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const [activeCategory, setActiveCategory] = useState('Все');
   const [selectedVacation, setSelectedVacation] =
     React.useState<VacationType | null>(null);
@@ -74,15 +70,25 @@ const Vacations: FC<VacationPageProps> = ({
             display: 'flex',
             flexWrap: 'wrap',
             gap: { lg: '50px', xs: '30px' },
-            alignContent: isDesktop ? 'flex-start' : 'stretch',
+            alignContent: 'stretch',
           }}
         >
           {slicedVacationsListTitles.map(([title]) => (
             <Box
               key={title}
               sx={{
-                flex: isDesktop ? '0 0 calc(50% - 50px)' : '1 1 100%',
-                maxWidth: '700px',
+                flex: {
+                  lg: '0 0 calc(50% - 25px)',
+                  md: '0 0 calc(50% - 15px)',
+                  xs: '1 1 100%',
+                },
+                maxWidth: {
+                  lg: 'calc(50% - 25px)',
+                  md: 'calc(50% - 15px)',
+                },
+                ':nth-child(n+3)': {
+                  display: { xs: itemCount ? 'none' : 'block', md: 'block' },
+                },
               }}
             >
               <VacationPreview key={title} title={title} />

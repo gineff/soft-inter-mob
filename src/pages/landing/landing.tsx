@@ -1,4 +1,4 @@
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box} from '@mui/material';
 import { Main } from '@/pages/main';
 import { Portfolio } from '@/pages/portfolio';
 import { About } from '@/pages/about';
@@ -12,8 +12,6 @@ import { Footer } from '@/components/footer';
 import { StickedButton } from '@/components/sticked-button';
 
 const Landing = () => {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
     <>
@@ -40,7 +38,7 @@ const Landing = () => {
         >
           <Portfolio />
           <About />
-          <Vacations itemCount={isDesktop ? 4 : 2} />
+          <Vacations itemCount={ 4 } />
           <Technologies />
           <Blog />
           <Partners />

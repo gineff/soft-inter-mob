@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import { DepartmentsProps } from './types';
-import { categories } from './vacations.data';
+import vacationsMap from '@/assets/json/vacationsMap.json';
 import { Box, Button } from '@mui/material';
 
 export const Departments: FC<DepartmentsProps> = ({ active, setActive }) => {
-  const allCategories = ['Все', ...categories];
+  const departments = new Set(vacationsMap.map(([, department]) => department));
+  const allDepartments = ['Все', ...departments];
+
   return (
     <Box
       sx={{
@@ -14,10 +16,10 @@ export const Departments: FC<DepartmentsProps> = ({ active, setActive }) => {
         flexWrap: 'wrap',
       }}
     >
-      {allCategories.map((category, index) => (
+      {allDepartments.map((department, index) => (
         <Button
-          onClick={() => setActive(category)}
-          variant={active === category ? 'active' : 'outlined'}
+          onClick={() => setActive(department)}
+          variant={active === department ? 'active' : 'outlined'}
           key={index}
           sx={{
             color: '#fff',
@@ -33,7 +35,7 @@ export const Departments: FC<DepartmentsProps> = ({ active, setActive }) => {
             },
           }}
         >
-          {category}
+          {department}
         </Button>
       ))}
     </Box>

@@ -10,31 +10,41 @@ import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PostPreview } from './post-preview';
 //import { posts } from './posts.data';
 import { Anchor } from '@/components/anchor';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { PostType } from './types';
 import CloseIcon from '@mui/icons-material/Close';
 import { PostCard } from './post-card';
 import { SectionTitle } from '@/components/section-title/section-title';
 import { fetchPosts } from '@/api/staticAPI';
+import { useAppContext } from '@/hooks/useAppContext';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export const Blog = () => {
+  const { value, setValue } = useAppContext();
   const scrollRef = useHorizontalScroll();
-  const [posts, setPosts] = useState<PostType[]>([]);
-  const [open, setOpen] = useState(false);
-  const [selectedPost, setSelectedPost] = useState<null | PostType>(null);
+  const { posts } = value;
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const postId = searchParams.get('postId');
+  const selectedPost = postId
+    ? posts.find((post) => post.id === +postId)
+    : null;
 
+  console.log(postId, !!postId, Array.from(searchParams));
   const handleSelectPost = (post: PostType) => {
-    setSelectedPost(post);
-    setOpen(true);
+    navigate(`?postId=${post.id}`);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    //setOpen(false);
+    const params = new URLSearchParams(searchParams);
+    params.delete('postId');
+    setSearchParams(params);
   };
 
   const loadPosts = async () => {
     const fetchedPosts = await fetchPosts();
-    setPosts(fetchedPosts);
+    setValue({ ...value, posts: fetchedPosts });
   };
 
   useEffect(() => {
@@ -78,9 +88,11 @@ export const Blog = () => {
           ))}
         </Box>
       </Container>
+
       <Dialog
         onClose={handleClose}
-        open={open}
+        scroll="body"
+        open={!!postId}
         PaperProps={{
           style: {
             backgroundColor: 'unset',
@@ -90,7 +102,10 @@ export const Blog = () => {
         }}
         BackdropProps={{
           sx: {
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backgroundColor: {
+              xs: 'background.default',
+              lg: 'rgba(0, 0, 0, 0.6)',
+            },
             backdropFilter: 'blur(10px)',
           },
         }}
@@ -109,6 +124,7 @@ export const Blog = () => {
             aria-label="close"
             onClick={handleClose}
             sx={{
+              display: { xs: 'none', lg: 'inherit' },
               position: 'absolute',
               right: '60px',
               top: '40px',

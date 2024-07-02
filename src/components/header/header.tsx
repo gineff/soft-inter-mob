@@ -1,21 +1,25 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import { useMediaQuery, useTheme } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import { IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { Suspense, useState } from 'react';
 import { Logo } from '@components/logo';
 import { SignUpButton } from '../sing-up-button/sing-up-button';
-import { NavMenu } from '../nav-menu';
+import { NavMenu, NavToggler } from '../nav-menu';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Icon } from '../icon';
 export const Header = () => {
   const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  //const location = useLocation();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  //const [searchParams] = useSearchParams
+  const hasRelevantSearchParam =
+    searchParams.has('postId') ?? searchParams.has('position');
 
-  const handleToggleMenu = () => {
+  const handleToggleNav = () => {
     setOpen(!open);
   };
 
@@ -29,6 +33,7 @@ export const Header = () => {
           backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
+          zIndex: { xs: 1400, lg: 1100 },
         }}
       >
         <Toolbar
@@ -43,29 +48,18 @@ export const Header = () => {
             px: '50px',
           }}
         >
-
-            <Logo sx={{  width: '155px', height: '34px' }} />
-
-
+          <Logo sx={{ width: '155px', height: '34px' }} />
           {isDesktop ? (
             <>
               <NavMenu component="stack" />
               <SignUpButton />
             </>
-          ) : (
-            <IconButton
-              sx={{
-                color: '#fff',
-                '& .MuiSvgIcon-root': {
-                  width: 40,
-                  height: 40,
-                },
-              }}
-              edge="start"
-              onClick={handleToggleMenu}
-            >
-              {open ? <CloseIcon /> : <MenuIcon />}
+          ) : hasRelevantSearchParam ? (
+            <IconButton onClick={() => navigate(-1)}>
+              <Icon type="close" sx={{ color: '#fff' }} />
             </IconButton>
+          ) : (
+            <NavToggler open={open} handleToggleNav={handleToggleNav} />
           )}
         </Toolbar>
         <Suspense fallback={<></>}>

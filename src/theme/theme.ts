@@ -47,6 +47,19 @@ export const theme: Theme = createTheme({
     },
   },
   components: {
+    MuiDialog: {
+      styleOverrides: {
+        root: {
+          '.MuiDialog-scrollBody': {
+            msOverflowStyle: 'none',
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+          },
+        },
+      },
+    },
     MuiAccordion: {
       styleOverrides: {
         root: {

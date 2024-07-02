@@ -11,5 +11,5 @@ export type PostPreviewProps = {
 };
 
 export type PostCardProps = {
-  post: PostType | null;
+  post?: Nullable<PostType>;
 };

@@ -4,6 +4,7 @@ import {
   CardContent,
   CardMedia,
   CardHeader,
+  Container,
   useTheme,
 } from '@mui/material';
 import { FC } from 'react';
@@ -17,11 +18,12 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
   const { title, image, content } = post;
 
   return (
-    <Box sx={{ width: { lg: '781px', md: '781px' } }}>
+    <Container sx={{ width: { lg: '781px', md: '781px' } }}>
       <Card
         sx={{
           padding: '70px 60px',
-          borderRadius: '40px',
+          borderRadius: '40px' ,
+          backgroundColor: { xs: 'background.default', lg: 'background.paper' },
         }}
       >
         <CardHeader title={title} sx={{ px: 0 }} />
@@ -43,6 +45,6 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
           ></Box>
         </CardContent>
       </Card>
-    </Box>
+    </Container>
   );
 };

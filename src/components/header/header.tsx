@@ -33,7 +33,7 @@ export const Header = () => {
           backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
-          zIndex: { xs: 1400, lg: 1100 },
+          zIndex: hasRelevantSearchParam ? 1400 : 1100,
         }}
       >
         <Toolbar

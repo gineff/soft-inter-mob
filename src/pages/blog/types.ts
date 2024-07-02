@@ -2,6 +2,7 @@ export type PostType = {
   id: number;
   title: string;
   image: string;
+  thumbnails: string;
   content: string;
 };
 

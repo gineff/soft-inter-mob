@@ -8,7 +8,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
   post,
   handleSelectPost,
 }) => {
-  const { title, image, content } = post;
+  const { title, thumbnails, content } = post;
   return (
     <Card
       sx={{
@@ -23,7 +23,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
     >
       <CardMedia
         component="img"
-        src={`/${image}`}
+        src={`/${thumbnails}`}
         alt={title}
         sx={{ height: '191px' }}
       />

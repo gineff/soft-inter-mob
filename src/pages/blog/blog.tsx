@@ -18,6 +18,7 @@ import { SectionTitle } from '@/components/section-title/section-title';
 import { fetchPosts } from '@/api/staticAPI';
 import { useAppContext } from '@/hooks/useAppContext';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Footer } from '@/components/footer';
 
 export const Blog = () => {
   const { value, setValue } = useAppContext();
@@ -135,8 +136,16 @@ export const Blog = () => {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ position: 'relative' }}>
           <PostCard post={selectedPost} />
+          <Footer
+            sx={{
+              display: { xs: 'inherit', lg: 'none' },
+              position: 'absolute',
+              minWidth: '100vw',
+              left: 'calc((100% - 100vw) / 2)',
+            }}
+          />
         </DialogContent>
       </Dialog>
     </>

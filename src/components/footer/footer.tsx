@@ -3,8 +3,10 @@ import { Anchor } from '@components/anchor';
 
 import { Logo } from '@components/logo';
 import { Icon } from '@components/icon';
+import { FooterProps } from './type';
+import { FC } from 'react';
 
-export const Footer = () => {
+export const Footer: FC<FooterProps> = ({sx}) => {
   const theme = useTheme();
   return (
     <>
@@ -12,6 +14,7 @@ export const Footer = () => {
         disableGutters
         component="footer"
         sx={{
+          ...sx,
           height: { lg: '286px', xs: '376px' },
           padding: { lg: '50px 100px', xs: '40px 20px' },
           backgroundColor: 'background.paper',

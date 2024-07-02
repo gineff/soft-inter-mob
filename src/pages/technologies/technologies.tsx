@@ -39,7 +39,7 @@ export const Technologies = () => {
         }}
       >
         {technologies.map(({ title, icon }) => (
-          <Card sx={{ backgroundColor: 'inherit' }}>
+          <Card key={title} sx={{ backgroundColor: 'inherit' }}>
             <CardMedia
               component="img"
               src={`/images/${icon}`}

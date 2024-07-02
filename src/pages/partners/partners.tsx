@@ -45,6 +45,7 @@ export const Partners = () => {
       >
         {technologiesList.map(({ title, icon }) => (
           <Box
+            key={title}
             sx={{
               width: isDesktop ? 'auto' : 'calc(33% - 79px)',
             }}

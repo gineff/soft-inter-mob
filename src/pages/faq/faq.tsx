@@ -39,7 +39,7 @@ export const Faq = () => {
 
       <Box sx={{ width: '100%' }}>
         {faq.map(({ title, content }) => (
-          <>
+          <Box key={title}>
             <GradientDivider />
             <Accordion
               defaultExpanded
@@ -60,7 +60,7 @@ export const Faq = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-          </>
+          </Box>
         ))}
       </Box>
     </Container>

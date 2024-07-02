@@ -15,9 +15,8 @@ import { Anchor } from '@/components/anchor';
 import { VacationPageProps, VacationType } from './types';
 import { FC, useState, useEffect } from 'react';
 import { Departments } from './departments';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { VacationCard } from './vacation-card';
 import CloseIcon from '@mui/icons-material/Close';
 import { SectionTitle } from '@/components/section-title/section-title';
@@ -25,18 +24,19 @@ import { fetchVacations } from '@/api/staticAPI';
 import vacationsMap from '@/assets/json/vacationsMap.json';
 import { Loader } from '@/components/loader';
 import { routes } from '@/router/routes';
+import { useAppContext } from '@/hooks/useAppContext';
+import { Footer } from '@/components/footer';
 
 const Vacations: FC<VacationPageProps> = ({
   isCategoriesVisible = false,
   itemCount,
 }) => {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
-
+  const { value, setValue } = useAppContext();
+  const { vacations } = value;
   const [open, setOpen] = useState(false);
   const [activeDepartment, setActiveDepartment] = useState('Все');
-  const [vacations, setVacations] = useState<VacationType[]>([]);
   const [selectedVacation, setSelectedVacation] =
     React.useState<VacationType | null>(null);
 
@@ -51,22 +51,23 @@ const Vacations: FC<VacationPageProps> = ({
     setOpen(false);
     const params = new URLSearchParams(searchParams);
     params.delete('position');
-    navigate({ search: params.toString() });
+    setSearchParams(params);
   };
 
   const loadVacations = async () => {
     const fetchedVacations = await fetchVacations();
-    setVacations(fetchedVacations);
+    setValue({ ...value, vacations: fetchedVacations });
   };
 
   useEffect(() => {
     const positionSearch = searchParams.get('position');
+
+    setOpen(!!positionSearch);
+
     if (!positionSearch) {
       setSelectedVacation(null);
       return;
     }
-
-    setOpen(true);
 
     if (vacations.length === 0) {
       loadVacations();
@@ -78,7 +79,6 @@ const Vacations: FC<VacationPageProps> = ({
     setSelectedVacation(foundVacation);
   }, [searchParams, vacations]);
 
-  console.log(location.pathname, routes.vacations);
   return (
     <>
       <Container
@@ -176,7 +176,10 @@ const Vacations: FC<VacationPageProps> = ({
         }}
         BackdropProps={{
           sx: {
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backgroundColor: {
+              xs: 'background.default',
+              lg: 'rgba(0, 0, 0, 0.6)',
+            },
             backdropFilter: 'blur(10px)',
           },
         }}
@@ -195,6 +198,7 @@ const Vacations: FC<VacationPageProps> = ({
             aria-label="close"
             onClick={handleClose}
             sx={{
+              display: { xs: 'none', lg: 'inherit' },
               position: 'absolute',
               right: '60px',
               top: '40px',
@@ -214,6 +218,10 @@ const Vacations: FC<VacationPageProps> = ({
                 padding: '70px 60px',
                 borderRadius: '40px',
                 minWidth: '741px',
+                backgroundColor: {
+                  xs: 'background.default',
+                  lg: 'background.paper',
+                },
               }}
             >
               <CardContent sx={{ p: 0 }}>
@@ -224,6 +232,14 @@ const Vacations: FC<VacationPageProps> = ({
               </CardContent>
             </Card>
           )}
+          <Footer
+            sx={{
+              display: { xs: 'inherit', lg: 'none' },
+              position: 'absolute',
+              minWidth: '100vw',
+              left: 'calc((100% - 100vw) / 2)',
+            }}
+          />
         </DialogContent>
       </Dialog>
     </>

@@ -31,7 +31,6 @@ export const Blog = () => {
     ? posts.find((post) => post.id === +postId)
     : null;
 
-  console.log(postId, !!postId, Array.from(searchParams));
   const handleSelectPost = (post: PostType) => {
     navigate(`?postId=${post.id}`);
   };

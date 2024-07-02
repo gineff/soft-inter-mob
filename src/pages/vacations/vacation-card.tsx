@@ -22,8 +22,8 @@ const Block: FC<BlockProps> = ({ title, content }) => {
       {!isContentArray && <BlockContent component="div" content={content} />}
       {isContentArray && (
         <ul>
-          {content.map((item) => (
-            <BlockContent component="li" content={item} />
+          {content.map((item, i) => (
+            <BlockContent key={i} component="li" content={item} />
           ))}
         </ul>
       )}
@@ -47,6 +47,7 @@ export const VacationCard: FC<VacationCardProps> = ({
         sx={{
           padding: '70px 60px',
           borderRadius: '40px',
+          backgroundColor: { xs: 'background.default', lg: 'background.paper' },
         }}
       >
         <CardContent sx={{ p: 0 }}>

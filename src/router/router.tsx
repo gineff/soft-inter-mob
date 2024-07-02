@@ -4,6 +4,7 @@ import { BaseLayout } from '@/components/base-layout';
 import { Landing } from '@/pages/landing';
 import { Vacations } from '@/pages/vacations';
 import { PageLayout } from '@/components/page-layout';
+import { Post } from '@/pages/blog/post';
 
 export const Router: FC = () => (
   <Routes>
@@ -14,7 +15,7 @@ export const Router: FC = () => (
 
     </Route>
     <Route path="/" element={<PageLayout />}>
-      <Route path="/post/:id" element={<h1>Posts</h1>} />
+      <Route path="/post/:id" element={<Post/>} />
 
     </Route>
     <Route path="*" element={<h1>Page not found</h1>} />

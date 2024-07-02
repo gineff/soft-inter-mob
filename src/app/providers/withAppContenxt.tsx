@@ -1,7 +1,7 @@
 import { ProviderComponent } from './types';
 import { AppContextProvider } from '@/hooks/useAppContext';
 
-export const withAppContent = (Component: ProviderComponent) => () =>
+export const withAppContext = (Component: ProviderComponent) => () =>
   (
     <AppContextProvider>
       <Component />

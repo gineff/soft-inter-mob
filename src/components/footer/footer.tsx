@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  Link,
   Stack,
   Typography,
   useMediaQuery,
@@ -76,14 +77,30 @@ export const Footer: FC<FooterProps> = ({ sx }) => {
               order: { lg: 3, xs: 2 },
             }}
           >
-            <Box
-              sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}
+            <Link
+              href="mailto:it.recruiter@softintermobile.org"
+              underline="none"
+              sx={{
+                color: '#fff',
+                '&:visited': {
+                  color: 'unset', // Цвет для посещенной ссылки
+                },
+              }}
             >
-              <Icon type="email" />
-              <Typography sx={{ wordBreak: 'break-word' }}>
-                it.recruiter@softintermobile.org
-              </Typography>
-            </Box>
+              <Box
+                sx={{
+                  display: 'inline-flex',
+                  gap: '20px',
+                  alignItems: 'center',
+                }}
+              >
+                <Icon type="email" />
+
+                <Typography sx={{ wordBreak: 'break-word' }}>
+                  it.recruiter@softintermobile.org
+                </Typography>
+              </Box>
+            </Link>
             {/*<Box
               sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}
             >

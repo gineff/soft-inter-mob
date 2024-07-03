@@ -23,7 +23,7 @@ export const Portfolio = () => {
     }
   }, [SelectedPortfolio]);
 
-  const scrollRef = useHorizontalScroll();
+  const scrollRef = useHorizontalScroll({speed: 0.8});
 
   const handleClose = () => {
     setOpen(false);
@@ -49,26 +49,39 @@ export const Portfolio = () => {
       >
         <Anchor id="Portfolio" />
         <SectionTitle sx={{ mb: '33px', pl: '50px' }}>Портфолио</SectionTitle>
-
         <Box
-          ref={scrollRef}
           sx={{
-            height: { lg: '570px', xs: '450px' },
-            overflow: 'auto',
-            display: 'flex',
-            flexFlow: 'column wrap',
-            alignContent: 'flex-start',
-            rowGap: '15px',
-            columnGap: '20px',
+            pb: '20px',
+            overflowX: 'scroll',
             '&::-webkit-scrollbar': {
-              display: 'none',
+              height: '16px',
             },
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none',
-            pl: '50px',
+            '&::-webkit-scrollbar-track': {
+              backgroundColor: 'background.paper',
+              borderRadius: '5px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: 'background.default',
+              borderRadius: '5px',
+              outline: '1px solid rgb(255,255,255, 0.2)',
+            },
           }}
+          ref={scrollRef}
         >
-          {portfolioList}
+          <Box
+            sx={{
+              height: { lg: '570px', xs: '450px' },
+              overflow: 'none',
+              display: 'flex',
+              flexFlow: 'column wrap',
+              alignContent: 'flex-start',
+              rowGap: '15px',
+              columnGap: '20px',
+              pl: '50px',
+            }}
+          >
+            {portfolioList}
+          </Box>
         </Box>
       </Container>
       <Modal

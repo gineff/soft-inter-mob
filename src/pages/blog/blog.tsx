@@ -21,7 +21,7 @@ import { Footer } from '@/components/footer';
 
 export const Blog = () => {
   const { value, setValue } = useAppContext();
-  const scrollRef = useHorizontalScroll();
+  const scrollRef = useHorizontalScroll({speed: 1.2});
   const { posts } = value;
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();

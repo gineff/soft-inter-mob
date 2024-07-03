@@ -1,6 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 
-export function useHorizontalScroll<T extends HTMLElement>() {
+export function useHorizontalScroll<T extends HTMLElement>({
+  speed = 1,
+}: {
+  speed?: number;
+}) {
   const containerRef = useRef<T | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -37,7 +41,7 @@ export function useHorizontalScroll<T extends HTMLElement>() {
       if (!isDragging) return;
       e.preventDefault();
       const x = e.pageX - el.offsetLeft;
-      const walk = (x - startX) * 1.2; // скорость прокрутки
+      const walk = (x - startX) * speed; // скорость прокрутки
       el.scrollLeft = scrollLeft - walk;
     };
 

@@ -2,8 +2,7 @@ import type { FC } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useScrollToTop } from '@/hooks/use-scroll-to-top';
 import { Header } from '../header';
-//import { Container } from '@mui/material';
-//import { useScrollToTop } from '@/hooks/use-scroll-to-top';
+import { Footer } from '../footer';
 
 export const BaseLayout: FC = () => {
   const { pathname } = useLocation();
@@ -13,6 +12,7 @@ export const BaseLayout: FC = () => {
     <>
       <Header />
       <Outlet />
+      <Footer sx={{ mt: { xs: ' 120px', lg: '150px' } }} />
     </>
   );
 };

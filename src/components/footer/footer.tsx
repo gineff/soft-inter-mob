@@ -1,4 +1,11 @@
-import { Box, Container, Stack, Typography, useTheme } from '@mui/material';
+import {
+  Box,
+  Container,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { Anchor } from '@components/anchor';
 
 import { Logo } from '@components/logo';
@@ -6,8 +13,10 @@ import { Icon } from '@components/icon';
 import { FooterProps } from './type';
 import { FC } from 'react';
 
-export const Footer: FC<FooterProps> = ({sx}) => {
+export const Footer: FC<FooterProps> = ({ sx }) => {
   const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+
   return (
     <>
       <Container
@@ -15,7 +24,7 @@ export const Footer: FC<FooterProps> = ({sx}) => {
         component="footer"
         sx={{
           ...sx,
-          height: { lg: '286px', xs: '376px' },
+          //height: { lg: '286px', xs: '376px' },
           padding: { lg: '50px 100px', xs: '40px 20px' },
           backgroundColor: 'background.paper',
           borderRadius: '40px 40px 0 0',
@@ -25,12 +34,13 @@ export const Footer: FC<FooterProps> = ({sx}) => {
         }}
       >
         <Stack
-          direction="column"
+          direction={isDesktop ? 'row' : 'column'}
           sx={{
             flexWrap: 'wrap',
             maxHeight: '100%',
             display: 'flex',
-            flexDirection: 'column',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
             gap: '15px',
             [theme.breakpoints.down('lg')]: {
               width: '337px',
@@ -43,7 +53,7 @@ export const Footer: FC<FooterProps> = ({sx}) => {
           }}
         >
           <Logo sx={{ order: 1, width: '228px', height: '50px' }} />
-          <Stack
+          {/*<Stack
             direction="row"
             spacing={5}
             sx={{
@@ -55,14 +65,14 @@ export const Footer: FC<FooterProps> = ({sx}) => {
             <Icon type="vkontakte" />
             <Icon type="instagram" />
             <Icon type="twitterX" />
-          </Stack>
+          </Stack>*/}
           <Stack
             direction="column"
             sx={{
               gap: '20px',
               m: '0!important',
               width: '337px',
-              alignSelf: { lg: 'flex-end', xs: 'unset' },
+              //alignSelf: { lg: 'flex-end', xs: 'unset' },
               order: { lg: 3, xs: 2 },
             }}
           >
@@ -71,10 +81,10 @@ export const Footer: FC<FooterProps> = ({sx}) => {
             >
               <Icon type="email" />
               <Typography sx={{ wordBreak: 'break-word' }}>
-                SOFTINTERMOB@techspaceapp.com
+                it.recruiter@softintermobile.org
               </Typography>
             </Box>
-            <Box
+            {/*<Box
               sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}
             >
               <Icon type="phone" />
@@ -82,7 +92,7 @@ export const Footer: FC<FooterProps> = ({sx}) => {
             </Box>
             <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
               <Icon type="location" />
-            </Box>
+            </Box> */}
           </Stack>
         </Stack>
         <Anchor id="Contacts" />

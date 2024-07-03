@@ -9,7 +9,6 @@ import { Partners } from '@/pages/partners';
 import { Blog } from '@/pages/blog';
 import { Faq } from '@/pages/faq';
 import { SignUp } from '@/pages/sign-up';
-import { Footer } from '@/components/footer';
 import { StickedButton } from '@/components/sticked-button';
 
 const Landing = () => {
@@ -33,7 +32,6 @@ const Landing = () => {
             flexDirection: 'column',
             gap: { lg: '150px', xs: '120px' },
             p: 0,
-            pb: { lg: '150px', xs: '120px' },
           }}
         >
           <Portfolio />
@@ -47,7 +45,6 @@ const Landing = () => {
           <SignUp />
         </Box>
       </Box>
-      <Footer />
     </>
   );
 };

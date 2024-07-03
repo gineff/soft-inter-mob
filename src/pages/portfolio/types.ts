@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
 
 export type Portfolio = {
+  id: number,
   icon: string;
   video: string;
   title: string;
@@ -10,9 +10,8 @@ export type Portfolio = {
 export type PortfolioIconProps = {
   portfolio: Portfolio;
   index: number;
-  setSelectedPortfolio: Dispatch<SetStateAction<Portfolio | null>>;
 };
 
 export type PortfolioCardProps = {
-  portfolio: Portfolio | null;
+  portfolio?: Portfolio | null;
 };

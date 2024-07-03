@@ -204,7 +204,7 @@ const Vacations: FC<VacationPageProps> = ({
             aria-label="close"
             onClick={handleClose}
             sx={{
-              display: { xs: 'none', lg: 'inherit' },
+              display: { xs: 'none', lg: 'block' },
               position: 'absolute',
               right: '60px',
               top: '40px',

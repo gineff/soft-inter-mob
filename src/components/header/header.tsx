@@ -17,7 +17,9 @@ export const Header = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   //const [searchParams] = useSearchParams
   const hasRelevantSearchParam =
-    searchParams.has('postId') || searchParams.has('position');
+    searchParams.has('postId') ||
+    searchParams.has('position') ||
+    searchParams.has('portfolioId');
 
   const handleToggleNav = () => {
     setOpen(!open);

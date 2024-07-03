@@ -1,13 +1,14 @@
 import { IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { PortfolioIconProps } from './types';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export const PortfolioIcon: FC<PortfolioIconProps> = ({
   portfolio,
   index,
-  setSelectedPortfolio,
 }) => {
-  const { icon, title } = portfolio;
+  const { icon, title, id } = portfolio;
   const isSecondEl = index % 3 === 1;
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -19,7 +20,8 @@ export const PortfolioIcon: FC<PortfolioIconProps> = ({
         marginLeft: isSecondEl ? `-${isDesktop ? 220 : 180}px` : 0,
       }}
       key={title}
-      onClick={() => setSelectedPortfolio(portfolio)}
+      to={{ search: `?portfolioId=${id}` }}
+      component={Link}
     >
       <img src={`/${icon}`} width={`${isDesktop ? 180 : 140}px`} />
     </IconButton>

@@ -19,19 +19,20 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({ portfolio }) => {
   return (
     <Card
       sx={{
+        flex: 1,
         maxWidth: { lg: '980px' },
         borderRadius: '40px',
         padding: '70px 60px',
         display: 'flex',
         flexDirection: 'column',
         gap: '32px',
-        border: '1px solid rgb(255,255,255, 0.2)',
+        border: { xs: 'none', lg: '1px solid rgb(255,255,255, 0.2)' },
+        backgroundColor: { xs: 'background.default', lg: 'background.paper' },
       }}
       key={title}
-      onClick={() => console.log(content)}
     >
       <CardContent>
-        <Stack direction="row" spacing={4}>
+        <Stack spacing={4} sx={{ flexDirection: { xs: 'column', lg: 'row' } }}>
           <Box
             component="img"
             sx={{

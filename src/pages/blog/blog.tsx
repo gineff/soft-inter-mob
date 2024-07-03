@@ -21,7 +21,7 @@ import { Footer } from '@/components/footer';
 
 export const Blog = () => {
   const { value, setValue } = useAppContext();
-  const scrollRef = useHorizontalScroll({speed: 1.2});
+  const scrollRef = useHorizontalScroll({ speed: 1.2 });
   const { posts } = value;
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -131,12 +131,13 @@ export const Blog = () => {
             aria-label="close"
             onClick={handleClose}
             sx={{
-              display: { xs: 'none', lg: 'inherit' },
+              display: { xs: 'none', lg: 'block' },
               position: 'absolute',
               right: '60px',
               top: '40px',
               color: '#FFF',
               opacity: 0.4,
+              zIndex: 1400,
             }}
           >
             <CloseIcon />

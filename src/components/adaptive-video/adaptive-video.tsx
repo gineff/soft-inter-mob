@@ -53,12 +53,12 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
     <Box
       onClick={handlePlayPause}
       sx={{
-        marginTop: { lg: '56px', md: '28px', sm: '28px' },
+        marginTop: { lg: '122px', xs: '74px' },
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        height: isDesktop ? 'calc(100vh - 56px)' : 'calc(100vh - 28px)',
+        height: isDesktop ? 'calc(100vh - 122px)' : 'calc(100vh - 74px)',
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -67,6 +67,7 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
         ref={videoRef}
         autoPlay
         muted
+        loop
         style={{
           width: '100%',
           height: '100%',
@@ -92,7 +93,13 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: {
-            lg: isMuted ? ControlOpacity : isHovered ? ControlOpacity : isPlaying ? 0 : ControlOpacity,
+            lg: isMuted
+              ? ControlOpacity
+              : isHovered
+              ? ControlOpacity
+              : isPlaying
+              ? 0
+              : ControlOpacity,
             xs: isMuted ? ControlOpacity : isPlaying ? 0 : ControlOpacity,
           },
           transition: 'opacity 0.4s ease-in-out',

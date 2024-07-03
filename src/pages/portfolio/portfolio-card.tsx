@@ -32,7 +32,10 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({ portfolio }) => {
       key={title}
     >
       <CardContent>
-        <Stack spacing={4} sx={{ flexDirection: { xs: 'column', lg: 'row' } }}>
+        <Stack
+          spacing={4}
+          sx={{ flexDirection: { xs: 'column', lg: 'row' }, gap: '24px' }}
+        >
           <Box
             component="img"
             sx={{

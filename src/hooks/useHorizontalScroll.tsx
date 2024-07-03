@@ -1,26 +1,66 @@
-import { useRef, useEffect, WheelEvent } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export function useHorizontalScroll<T extends HTMLElement>() {
-  const elRef = useRef<T | null>(null);
+  const containerRef = useRef<T | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
-    const el = elRef.current;
-    if (el) {
-      const onWheel = (e: WheelEvent) => {
-        if (e.deltaY === 0) return;
-        e.preventDefault();
-        el.scrollTo({
-          left: el.scrollLeft + e.deltaY,
-          behavior: 'smooth',
-        });
-      };
+    const el = containerRef.current;
+    if (!el) return;
 
-      const listener = onWheel as unknown as EventListener; // Приведение типов
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      el.scrollTo({
+        left: el.scrollLeft + e.deltaY,
+        behavior: 'smooth',
+      });
+    };
 
-      el.addEventListener('wheel', listener);
-      return () => el.removeEventListener('wheel', listener);
-    }
-  }, []);
+    const onMouseDown = (e: MouseEvent) => {
+      setIsDragging(true);
+      setStartX(e.pageX - el.offsetLeft);
+      setScrollLeft(el.scrollLeft);
+    };
 
-  return elRef;
+    const onMouseLeave = () => {
+      setIsDragging(false);
+    };
+
+    const onMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1.2; // скорость прокрутки
+      el.scrollLeft = scrollLeft - walk;
+    };
+
+    const wheelListener = onWheel as unknown as EventListener;
+    const mouseDownListener = onMouseDown as unknown as EventListener;
+    const mouseLeaveListener = onMouseLeave as unknown as EventListener;
+    const mouseUpListener = onMouseUp as unknown as EventListener;
+    const mouseMoveListener = onMouseMove as unknown as EventListener;
+
+    el.addEventListener('wheel', wheelListener);
+    el.addEventListener('mousedown', mouseDownListener);
+    el.addEventListener('mouseleave', mouseLeaveListener);
+    el.addEventListener('mouseup', mouseUpListener);
+    el.addEventListener('mousemove', mouseMoveListener);
+
+    return () => {
+      el.removeEventListener('wheel', wheelListener);
+      el.removeEventListener('mousedown', mouseDownListener);
+      el.removeEventListener('mouseleave', mouseLeaveListener);
+      el.removeEventListener('mouseup', mouseUpListener);
+      el.removeEventListener('mousemove', mouseMoveListener);
+    };
+  }, [isDragging, startX, scrollLeft]);
+
+  return containerRef;
 }

@@ -8,7 +8,6 @@ import {
 } from '@mui/material';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PostPreview } from './post-preview';
-//import { posts } from './posts.data';
 import { Anchor } from '@/components/anchor';
 import { useEffect } from 'react';
 import { PostType } from './types';
@@ -66,17 +65,25 @@ export const Blog = () => {
           ref={scrollRef}
           sx={{
             width: '100%',
-            overflow: 'auto',
+            overflowX: 'scroll',
+            pb: '20px',
             display: 'flex',
             flexFlow: 'row  nowrap',
             alignContent: 'flex-start',
             justifyContent: 'flex-start',
             gap: '20px',
             '&::-webkit-scrollbar': {
-              display: 'none',
+              height: '16px',
             },
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar-track': {
+              backgroundColor: 'background.paper',
+              borderRadius: '5px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: 'background.default',
+              borderRadius: '5px',
+              outline: '1px solid rgb(255,255,255, 0.2)',
+            },
           }}
         >
           {posts.map((post) => (

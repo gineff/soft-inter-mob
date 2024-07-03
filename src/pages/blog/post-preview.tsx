@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography, CardMedia } from '@mui/material';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { PostPreviewProps } from './types';
 
 /**Todo * заменить WebkitLineClamp на height */
@@ -9,17 +9,45 @@ export const PostPreview: FC<PostPreviewProps> = ({
   handleSelectPost,
 }) => {
   const { title, thumbnails, content } = post;
+  const [mouseDownTime, setMouseDownTime] = useState(0);
+  const [clickThreshold] = useState(350);
+  const [startX, setStartX] = useState(0);
+  const [moveThreshold] = useState(5);
+  const [isDragClick, setIsDragClick] = useState(false);
+
+  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setMouseDownTime(Date.now());
+    setIsDragClick(false);
+    setStartX(e.pageX);
+  };
+
+  const onMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+    const clickTime = Date.now() - mouseDownTime;
+    console.log(Math.abs(e.pageX - startX));
+    if (
+      clickTime > clickThreshold ||
+      Math.abs(e.pageX - startX) > moveThreshold
+    ) {
+      setIsDragClick(true);
+    }
+  };
+
   return (
     <Card
+      component="div"
       sx={{
         padding: '0',
         borderRadius: '40px',
         flex: '0 0 auto',
-        width: '379px',
+        width: '370px',
         height: '407px',
         cursor: 'pointer',
       }}
-      onClick={() => handleSelectPost(post)}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onClick={() => {
+        !isDragClick && handleSelectPost(post);
+      }}
     >
       <CardMedia
         component="img"

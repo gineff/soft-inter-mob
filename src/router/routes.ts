@@ -1,17 +1,17 @@
 import type { RouteType } from './types';
 
 export const routes: Record<string, RouteType> = {
-  main: {
-    title: 'О нас',
-    path: 'About',
-  },
   portfolio: {
     title: 'Портфолио',
     path: 'Portfolio',
   },
-  unit: {
+  main: {
+    title: 'О нас',
+    path: 'About',
+  },
+  departments: {
     title: 'Отделы',
-    path: 'Units',
+    path: 'Departments',
   },
   vacations: {
     title: 'Вакансии',
@@ -25,13 +25,13 @@ export const routes: Record<string, RouteType> = {
     title: 'Блог',
     path: 'Blog',
   },
-  faq: {
-    title: 'FAQ',
-    path: 'Faq',
-  },
   partners: {
     title: 'Партнеры',
     path: 'Partners',
+  },
+  faq: {
+    title: 'FAQ',
+    path: 'Faq',
   },
   contacts: {
     title: 'Контакты',

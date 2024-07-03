@@ -4,6 +4,7 @@ import { ButtonPropsVariantOverrides } from '@mui/material/Button';
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     active: true;
+    gradient: true;
   }
   interface Mixins {
     centredCol: true;

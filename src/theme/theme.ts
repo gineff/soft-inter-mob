@@ -119,6 +119,18 @@ export const theme: Theme = createTheme({
             color: `${backgroundColor}!important`,
           },
         },
+        {
+          props: { variant: 'gradient' },
+          style: {
+            fontSize: '20px',
+            lineHeight: '24px',
+            textTransform: 'none',
+            background: `linear-gradient(135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
+            borderRadius: 24,
+            padding: '32px 38px',
+            color: '#FFFFFF',
+          },
+        },
       ],
       styleOverrides: {
         root: ({ ownerState: ovnerState }) => ({

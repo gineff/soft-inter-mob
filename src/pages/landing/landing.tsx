@@ -1,7 +1,8 @@
-import { Box} from '@mui/material';
+import { Box } from '@mui/material';
 import { Main } from '@/pages/main';
 import { Portfolio } from '@/pages/portfolio';
 import { About } from '@/pages/about';
+import { Departments } from '@/pages/departments';
 import { Vacations } from '@/pages/vacations';
 import { Technologies } from '@/pages/technologies';
 import { Partners } from '@/pages/partners';
@@ -12,7 +13,6 @@ import { Footer } from '@/components/footer';
 import { StickedButton } from '@/components/sticked-button';
 
 const Landing = () => {
-
   return (
     <>
       <Main />
@@ -38,7 +38,8 @@ const Landing = () => {
         >
           <Portfolio />
           <About />
-          <Vacations itemCount={ 4 } />
+          <Departments />
+          <Vacations itemCount={4} />
           <Technologies />
           <Blog />
           <Partners />

@@ -36,16 +36,22 @@ const Vacations: FC<VacationPageProps> = ({
   const { value, setValue } = useAppContext();
   const { vacations } = value;
   const [open, setOpen] = useState(false);
-  const [activeDepartment, setActiveDepartment] = useState('Все');
+  //const [activeDepartment, setActiveDepartment] = useState('Все');
   const [selectedVacation, setSelectedVacation] =
     React.useState<VacationType | null>(null);
 
+  const activeDepartment = searchParams.get('department') ?? 'Все';
   const slicedPositionsMap = vacationsMap
     .slice(0, itemCount || undefined)
     .filter(
       ([, department]) =>
         activeDepartment === 'Все' || activeDepartment === department
     );
+
+  const handleActiveDepartment = (department: string)=> {
+    searchParams.set('department', department)
+    setSearchParams(searchParams);
+  } 
 
   const handleClose = () => {
     setOpen(false);
@@ -99,7 +105,7 @@ const Vacations: FC<VacationPageProps> = ({
           <Box sx={{ mb: { lg: '41px', xs: '30px' } }}>
             <Departments
               active={activeDepartment}
-              setActive={setActiveDepartment}
+              setActive={handleActiveDepartment}
             />
           </Box>
         )}

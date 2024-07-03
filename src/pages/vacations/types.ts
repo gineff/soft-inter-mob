@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 export type VacationType = {
   id: number,
   position: Position;
@@ -26,7 +24,7 @@ export type VacationPageProps = {
 
 export type DepartmentsProps = {
   active: string;
-  setActive: Dispatch<SetStateAction<string>>;
+  setActive: (department: string) => void;
 };
 
 export type BlockProps = {

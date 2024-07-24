@@ -1,1 +1,3 @@
-export { AdaptiveVideo } from "./adaptive-video";
+import { lazy } from 'react';
+
+export const AdaptiveVideo = lazy(() => import('./adaptive-video'));

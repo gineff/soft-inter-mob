@@ -1,7 +1,7 @@
+import { Suspense, useState } from 'react';
 import { AdaptiveVideo } from '@/components/adaptive-video';
 import { InfoPanel } from '@/components/info-panel';
 import { Box, useTheme } from '@mui/material';
-import { useState } from 'react';
 
 export const Main = () => {
   const theme = useTheme();
@@ -24,7 +24,19 @@ export const Main = () => {
         ...theme.mixins.centredCol,
       })}
     >
-      <AdaptiveVideo src="/video/master.m3u8" isHovered={isHovered} />
+      <Suspense
+        fallback={
+          <Box
+            sx={{
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'background.default',
+            }}
+          />
+        }
+      >
+        <AdaptiveVideo src="/video/master.m3u8" isHovered={isHovered} />
+      </Suspense>
       <InfoPanel
         sx={{
           position: 'absolute',

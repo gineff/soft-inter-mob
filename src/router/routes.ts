@@ -1,10 +1,6 @@
 import type { RouteType } from './types';
 
 export const routes: Record<string, RouteType> = {
-  portfolio: {
-    title: 'Портфолио',
-    path: 'Portfolio',
-  },
   main: {
     title: 'О нас',
     path: 'About',

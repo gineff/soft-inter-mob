@@ -50,7 +50,7 @@ export const Header = () => {
             px: '50px',
           }}
         >
-          <Logo sx={{ width: '155px', height: '34px' }} />
+          <Logo sx={{ width: '281px', height: '61px' }} />
           {isDesktop ? (
             <>
               <NavMenu component="stack" />

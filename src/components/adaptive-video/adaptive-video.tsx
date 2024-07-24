@@ -108,9 +108,10 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
       <Box
         sx={{
           position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, calc(-50% - 150px))',
+          top: { lg: '79px', xs: '120px' },
+          //top: '50%',
+          //left: '50%',
+          //transform: 'translate(-50%, calc(-50% - 250px))',
           width: '636px',
           height: '97px',
           textAlign: 'center',
@@ -122,11 +123,15 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
         }}
       >
         <Typography
-          sx={{
-            fontWeight: 600,
-            fontSize: '80px',
-            lineHeight: '96.82px',
-          }}
+          sx={
+            isDesktop
+              ? {
+                  fontWeight: 600,
+                  fontSize: '80px',
+                  lineHeight: '96.82px',
+                }
+              : { fontWeight: 600, fontSize: '44px', lineHeight: '53.25px' }
+          }
         >
           SOFTINTERMOB
         </Typography>

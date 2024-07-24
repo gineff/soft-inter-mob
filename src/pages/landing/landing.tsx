@@ -34,7 +34,6 @@ const Landing = () => {
             p: 0,
           }}
         >
-          <Portfolio />
           <About />
           <Departments />
           <Vacations itemCount={4} />

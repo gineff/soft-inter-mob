@@ -8,11 +8,15 @@ export const InfoBlock: FC<InfoBlockProps> = memo(({ children }) => {
     <Box
       sx={{
         display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
         height: '112px',
         padding: '32px 38px',
-        background: `linear-gradient(135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
-        borderRadius: '24px',
+        border: '3px solid transparent',
+        background: `linear-gradient(#010101, #010101), linear-gradient( 135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
+        backgroundClip: 'padding-box, border-box',
+        backgroundOrigin: 'padding-box, border-box',
+        borderRadius: '45px',
       }}
     >
       <Typography
@@ -23,7 +27,10 @@ export const InfoBlock: FC<InfoBlockProps> = memo(({ children }) => {
           textAlign: 'center',
         }}
       >
-        {children}
+        <Box
+          component="span"
+          dangerouslySetInnerHTML={{ __html: children as string }}
+        ></Box>
       </Typography>
     </Box>
   );

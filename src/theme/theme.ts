@@ -76,11 +76,17 @@ export const theme: Theme = createTheme({
           '& label': {
             paddingLeft: '28px',
           },
+          "& .MuiFilledInput-underline:after": {
+            borderBottomColor: 'transparent'
+          },
           '& .MuiFilledInput-root': {
             '&:before': {
               borderBottomColor: 'transparent',
             },
             '&:hover:not(.Mui-disabled)::before': {
+              borderBottomColor: 'transparent',
+            },
+            '& .Mui-focused': {
               borderBottomColor: 'transparent',
             },
           },

@@ -9,6 +9,7 @@ import {
   Card,
   CardContent,
   Typography,
+  Grid,
 } from '@mui/material';
 import { VacationPreview } from './vacation-preview';
 import { Anchor } from '@/components/anchor';
@@ -37,7 +38,7 @@ const Vacations: FC<VacationPageProps> = ({
   const [open, setOpen] = useState(false);
   const [selectedVacation, setSelectedVacation] =
     React.useState<VacationType | null>(null);
-
+  const isVacationRoute = location.pathname.slice(1) === routes.vacations.path;
   const activeDepartment = searchParams.get('department') ?? 'Все';
 
   const handleActiveDepartment = (department: string) => {
@@ -84,14 +85,15 @@ const Vacations: FC<VacationPageProps> = ({
           display: 'flex',
           flexDirection: 'column',
           padding: '0 50px!important',
-          mt:
-            location.pathname.slice(1) === routes.vacations.path
-              ? { lg: '187px', xs: '94px' }
-              : 0,
+          mt: isVacationRoute ? { lg: '187px', xs: '94px' } : 0,
         }}
       >
         <Anchor id="vacations" />
-        <SectionTitle>Вакансии</SectionTitle>
+        <SectionTitle
+          sx={isVacationRoute ? { mb: { lg: '41px', xs: '30px' } } : {}}
+        >
+          Вакансии
+        </SectionTitle>
 
         {isCategoriesVisible && (
           <Box sx={{ mb: { lg: '41px', xs: '30px' } }}>
@@ -101,43 +103,33 @@ const Vacations: FC<VacationPageProps> = ({
             />
           </Box>
         )}
+
         {!vacations.length && <Loader />}
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: { lg: '50px', xs: '30px' },
-            alignContent: 'stretch',
-          }}
-        >
+
+        <Grid container spacing={{ lg: 6, xs: 2 }}>
           {vacations
             .slice(0, itemCount || undefined)
             .filter(
               ({ department }) =>
                 activeDepartment === 'Все' || activeDepartment === department
             )
-            .map((vacation) => (
-              <Box
-                key={vacation.id}
+            .map((vacation, index) => (
+              <Grid
+                item
+                xs={12}
+                md={6}
+                lg={4}
+                key={index}
                 sx={{
-                  flex: {
-                    lg: '0 0 calc(33% - 34px)',
-                    md: '0 0 calc(50% - 15px)',
-                    xs: '1 1 100%',
-                  },
-                  maxWidth: {
-                    lg: 'calc(33% - 34px)',
-                    md: 'calc(50% - 15px)',
-                  },
                   ':nth-child(n+3)': {
                     display: { xs: itemCount ? 'none' : 'block', lg: 'block' },
                   },
                 }}
               >
                 <VacationPreview vacation={vacation} />
-              </Box>
+              </Grid>
             ))}
-        </Box>
+        </Grid>
 
         {itemCount && (
           <Box

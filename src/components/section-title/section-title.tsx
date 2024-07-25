@@ -6,7 +6,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({ children, sx }) => (
   <Typography
     variant="font40"
     component="h1"
-    sx={{ ...sx, textTransform: 'uppercase', mb: { lg: '51px', xs: '30px' } }}
+    sx={{ textTransform: 'uppercase', mb: { lg: '51px', xs: '30px' }, ...sx }}
     textAlign={{ lg: 'left', xs: 'center' }}
   >
     {children}

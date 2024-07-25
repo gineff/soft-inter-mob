@@ -8,12 +8,20 @@ import {
   CardHeader,
 } from '@mui/material';
 import { FC } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { VacationPreviewProps } from './types';
 
 export const VacationPreview: FC<VacationPreviewProps> = ({
   vacation: { position, id, tags },
 }) => {
+  const location = useLocation();
+
+  const getNewSearchParams = () => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set('position', String(id));
+    return searchParams.toString();
+  };
+
   return (
     <Card
       sx={{
@@ -25,8 +33,21 @@ export const VacationPreview: FC<VacationPreviewProps> = ({
       }}
     >
       <CardHeader
-        sx={{ padding: 0 }}
-        title={<Typography variant="font20">{position}</Typography>}
+        sx={{ padding: 0, height: '24px' }}
+        title={
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Typography variant="font20">{position}</Typography>
+            <Typography variant="font16" sx={{ opacity: 0.5 }}>
+              удаленно
+            </Typography>
+          </Box>
+        }
       />
 
       <CardContent sx={{ p: 0, m: '20px 0' }}>
@@ -35,11 +56,13 @@ export const VacationPreview: FC<VacationPreviewProps> = ({
             tags.map((tag) => (
               <Typography
                 component="span"
+                variant="font16"
                 sx={{
                   backgroundColor: '#5627BC',
-                  padding: '10px 16px',
+                  padding: '10px 18px',
                   borderRadius: '50px',
                   whiteSpace: 'nowrap',
+                  fontWeight: 500,
                 }}
               >
                 {tag}
@@ -49,7 +72,10 @@ export const VacationPreview: FC<VacationPreviewProps> = ({
       </CardContent>
       <CardActions sx={{ p: 0 }}>
         <Button
-          to={{ search: `?position=${id}` }}
+          to={{
+            pathname: location.pathname,
+            search: getNewSearchParams(),
+          }}
           component={RouterLink}
           variant="outlined"
           sx={{

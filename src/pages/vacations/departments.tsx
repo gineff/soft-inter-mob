@@ -27,7 +27,7 @@ export const Departments: FC<DepartmentsProps> = ({ active, setActive }) => {
             color: '#fff',
             border: '2px solid #fff',
             borderRadius: '40px',
-            padding: '20px 32px',
+            padding: '18px 30px',
             fontWeight: 600,
             '&:hover': {
               borderWidth: '2px',

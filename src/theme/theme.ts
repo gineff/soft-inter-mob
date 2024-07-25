@@ -72,7 +72,22 @@ export const theme: Theme = createTheme({
         root: {
           ...mixinFont16,
           backgroundColor: '#FFF',
-          borderRadius: '8px',
+          borderRadius: '50px',
+          '& label': {
+            paddingLeft: '28px',
+          },
+          '& .MuiFilledInput-root': {
+            '&:before': {
+              borderBottomColor: 'transparent',
+            },
+            '&:hover:not(.Mui-disabled)::before': {
+              borderBottomColor: 'transparent',
+            },
+          },
+          '& .MuiFilledInput-input': {
+            color: '#000',
+            paddingLeft: '28px',
+          },
         },
       },
     },

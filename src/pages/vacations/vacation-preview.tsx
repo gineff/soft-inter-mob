@@ -1,56 +1,69 @@
 import {
+  Box,
   Card,
   CardContent,
   Typography,
   CardActions,
   Button,
-  useTheme,
+  CardHeader,
 } from '@mui/material';
 import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { VacationPreviewProps } from './types';
 
-export const VacationPreview: FC<VacationPreviewProps> = ({ position }) => {
-  const theme = useTheme();
-
+export const VacationPreview: FC<VacationPreviewProps> = ({
+  vacation: { position, id, tags },
+}) => {
   return (
     <Card
       sx={{
-        padding: '36px 54px',
+        position: 'relative',
+        padding: '35px 29px',
         borderRadius: '30px',
+        border: '1px solid rgb(255,255,255, 0.2)',
+        height: '225px',
       }}
     >
-      <CardContent sx={{ p: 0 }}>
-        <Typography
-          variant="font32"
-          component="h2"
-          sx={{
-            whiteSpace: 'nowrap',
-            [theme.breakpoints.down('lg')]: {
-              fontWeight: 400,
-              fontSize: '20px',
-              lineHeight: '24.2px',
-            },
-          }}
-        >
-          {position}
-        </Typography>
+      <CardHeader
+        sx={{ padding: 0 }}
+        title={<Typography variant="font20">{position}</Typography>}
+      />
+
+      <CardContent sx={{ p: 0, m: '20px 0' }}>
+        <Box sx={{ display: 'flex', gap: '7px' }}>
+          {tags &&
+            tags.map((tag) => (
+              <Typography
+                component="span"
+                sx={{
+                  backgroundColor: '#5627BC',
+                  padding: '10px 16px',
+                  borderRadius: '50px',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {tag}
+              </Typography>
+            ))}
+        </Box>
       </CardContent>
-      <CardActions
-        sx={{ p: 0, mt: 2, [theme.breakpoints.down('lg')]: { mt: '40px' } }}
-      >
+      <CardActions sx={{ p: 0 }}>
         <Button
-          to={{ search: `?position=${position}` }}
+          to={{ search: `?position=${id}` }}
           component={RouterLink}
-          variant="contained"
+          variant="outlined"
           sx={{
-            width: { xs: '100%', md: 'auto' },
-            fontWeight: 600,
-            fontSize: '21px',
-            lineHeight: '25.41px',
+            position: 'absolute',
+            right: '29px',
+            bottom: '36px',
+            color: '#fff',
+            border: '2px solid #fff',
+            borderRadius: '50px',
+            padding: '13px 24px',
+            fontWeight: '600px',
           }}
         >
-          Подробнее
+          <Typography variant="font16">Подробнее</Typography>
         </Button>
       </CardActions>
     </Card>

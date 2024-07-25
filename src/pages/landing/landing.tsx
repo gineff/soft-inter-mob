@@ -35,7 +35,7 @@ const Landing = () => {
         >
           <About />
           <Departments />
-          <Vacations itemCount={4} />
+          <Vacations itemCount={3} />
           <Technologies />
           <Blog />
           <Partners />

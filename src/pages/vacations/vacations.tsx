@@ -21,7 +21,6 @@ import { VacationCard } from './vacation-card';
 import CloseIcon from '@mui/icons-material/Close';
 import { SectionTitle } from '@/components/section-title/section-title';
 import { fetchVacations } from '@/api/staticAPI';
-import vacationsMap from '@/assets/json/vacationsMap.json';
 import { Loader } from '@/components/loader';
 import { routes } from '@/router/routes';
 import { useAppContext } from '@/hooks/useAppContext';
@@ -36,22 +35,15 @@ const Vacations: FC<VacationPageProps> = ({
   const { value, setValue } = useAppContext();
   const { vacations } = value;
   const [open, setOpen] = useState(false);
-  //const [activeDepartment, setActiveDepartment] = useState('Все');
   const [selectedVacation, setSelectedVacation] =
     React.useState<VacationType | null>(null);
 
   const activeDepartment = searchParams.get('department') ?? 'Все';
-  const slicedPositionsMap = vacationsMap
-    .slice(0, itemCount || undefined)
-    .filter(
-      ([, department]) =>
-        activeDepartment === 'Все' || activeDepartment === department
-    );
 
-  const handleActiveDepartment = (department: string)=> {
-    searchParams.set('department', department)
+  const handleActiveDepartment = (department: string) => {
+    searchParams.set('department', department);
     setSearchParams(searchParams);
-  } 
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -72,7 +64,7 @@ const Vacations: FC<VacationPageProps> = ({
 
     if (!positionSearch) {
       setSelectedVacation(null);
-      return;
+      //return;
     }
 
     if (vacations.length === 0) {
@@ -81,9 +73,9 @@ const Vacations: FC<VacationPageProps> = ({
     }
 
     const foundVacation =
-      vacations.find(({ position }) => position === positionSearch) || null;
+      vacations.find(({ id }) => id === Number(positionSearch)) || null;
     setSelectedVacation(foundVacation);
-  }, [searchParams, vacations]);
+  }, [searchParams, value]);
 
   return (
     <>
@@ -109,7 +101,7 @@ const Vacations: FC<VacationPageProps> = ({
             />
           </Box>
         )}
-
+        {!vacations.length && <Loader />}
         <Box
           sx={{
             display: 'flex',
@@ -118,27 +110,33 @@ const Vacations: FC<VacationPageProps> = ({
             alignContent: 'stretch',
           }}
         >
-          {slicedPositionsMap.map(([position], i) => (
-            <Box
-              key={`${i}:${position}`}
-              sx={{
-                flex: {
-                  lg: '0 0 calc(50% - 25px)',
-                  md: '0 0 calc(50% - 15px)',
-                  xs: '1 1 100%',
-                },
-                maxWidth: {
-                  lg: 'calc(50% - 25px)',
-                  md: 'calc(50% - 15px)',
-                },
-                ':nth-child(n+3)': {
-                  display: { xs: itemCount ? 'none' : 'block', md: 'block' },
-                },
-              }}
-            >
-              <VacationPreview position={position} />
-            </Box>
-          ))}
+          {vacations
+            .slice(0, itemCount || undefined)
+            .filter(
+              ({ department }) =>
+                activeDepartment === 'Все' || activeDepartment === department
+            )
+            .map((vacation) => (
+              <Box
+                key={vacation.id}
+                sx={{
+                  flex: {
+                    lg: '0 0 calc(33% - 34px)',
+                    md: '0 0 calc(50% - 15px)',
+                    xs: '1 1 100%',
+                  },
+                  maxWidth: {
+                    lg: 'calc(33% - 34px)',
+                    md: 'calc(50% - 15px)',
+                  },
+                  ':nth-child(n+3)': {
+                    display: { xs: itemCount ? 'none' : 'block', lg: 'block' },
+                  },
+                }}
+              >
+                <VacationPreview vacation={vacation} />
+              </Box>
+            ))}
         </Box>
 
         {itemCount && (
@@ -150,21 +148,15 @@ const Vacations: FC<VacationPageProps> = ({
             }}
           >
             <Button
-              variant="outlined"
+              variant="gradient"
               component={Link}
               to={`/vacations`}
               sx={{
-                fontWeight: 600,
-                fontSize: '25px',
-                lineHeight: '30.26px',
-                borderWidth: '2px',
-                color: '#976EEF',
-                '&:hover': {
-                  borderWidth: '2px',
-                },
+                cursor: 'pointer',
+                padding: '20px 34px',
               }}
             >
-              Смотреть все
+              <Typography variant="font20">Смотреть все</Typography>
             </Button>
           </Box>
         )}

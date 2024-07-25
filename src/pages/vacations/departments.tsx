@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import { DepartmentsProps } from './types';
-import vacationsMap from '@/assets/json/vacationsMap.json';
 import { Box, Button } from '@mui/material';
+import { useAppContext } from '@/hooks/useAppContext';
 
 export const Departments: FC<DepartmentsProps> = ({ active, setActive }) => {
-  const departments = new Set(vacationsMap.map(([, department]) => department));
+  const { value } = useAppContext();
+  const { vacations } = value;
+  const departments = new Set(vacations.map(({ department }) => department));
   const allDepartments = ['Все', ...departments];
 
   return (

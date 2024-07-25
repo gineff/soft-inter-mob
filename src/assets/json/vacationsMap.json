@@ -1,126 +1,210 @@
 [
   [
-    "3D animator",
-    "Video production"
+      "3D Artist",
+      "3D Production"
   ],
   [
-    "3D Generalist",
-    "Video production"
+      "3D animator",
+      "3D Production"
   ],
   [
-    "Content creation",
-    "Video production"
+      "3D Generalist",
+      "3D Production"
   ],
   [
-    "Motion Designer",
-    "Video production"
+      "3D Environment Artist",
+      "3D Production"
   ],
   [
-    "Backend Developer",
-    "Development"
+      "3D Environment Artist",
+      "3D Production"
   ],
   [
-    "Project Manager (Backend)",
-    "Project Manager"
+      "3D Render Artist",
+      "3D Production"
   ],
   [
-    "Project Manager",
-    "Project Manager"
+      "3D Rigger",
+      "3D Production"
   ],
   [
-    "ML Developer",
-    "Development"
+      "Художник-раскадровщик",
+      "3D Production"
   ],
   [
-    "IOS Developer",
-    "Development"
+      "Дизайнер-иллюстратор",
+      "Video production"
   ],
   [
-    "Unity Developer",
-    "Development"
+      "Видео колорист",
+      "Video production"
   ],
   [
-    "Lead iOS Developer",
-    "Development"
+      "Sound Designer",
+      "Video production"
   ],
   [
-    "Lead Unity Developer",
-    "Development"
+      "Режиссер - сценарист",
+      "Video production"
   ],
   [
-    "Graphic / UX/UI Designer",
-    "Design"
+      "Content creation",
+      "Video production"
   ],
   [
-    "System Administrator",
-    "Администрирование"
+      "Video Editor",
+      "Video production"
   ],
   [
-    "Юрист",
-    "Юридический"
+      "Motion Designer",
+      "Video production"
   ],
   [
-    "IT рекрутер",
-    "HR"
+      "Backend Developer",
+      "Development"
   ],
   [
-    "HR менеджер",
-    "HR"
+      "Project Manager (Backend)",
+      "Managers"
   ],
   [
-    "QA специалист",
-    "QA"
+      "Project Manager Designer",
+      "Managers"
   ],
   [
-    "Jira Administrator",
-    "Администрирование"
+      "Project Manager",
+      "Managers"
   ],
   [
-    "Маркетолог",
-    "Маркетинг"
+      "ML Developer",
+      "Development"
   ],
   [
-    "Помощник маркетолога",
-    "Маркетинг"
+      "IOS Developer",
+      "Development"
   ],
   [
-    "Контент менеджер",
-    "Маркетинг"
+      "Unity Developer",
+      "Development"
   ],
   [
-    "Копирайтер",
-    "Маркетинг"
+      "Lead iOS Developer",
+      "Development"
   ],
   [
-    "Game Designer",
-    "GameDev"
+      "Unity Developer",
+      "Development"
   ],
   [
-    "Level-Designer",
-    "GameDev"
+      "Lead iOS Developer",
+      "Development"
   ],
   [
-    "UX/UI дизайнер",
-    "GameDev"
+      "Lead Unity Developer",
+      "Development"
   ],
   [
-    "3D artist",
-    "GameDev"
+      "Graphic / UX/UI Designer",
+      "Design"
   ],
   [
-    "3D animator GameDev",
-    "GameDev"
+      "System Administrator",
+      "Поддержка"
   ],
   [
-    "2D artist",
-    "GameDev"
+      "Юрист",
+      "Юридический"
   ],
   [
-    "2D concept",
-    "GameDev"
+      "IT рекрутер",
+      "HR"
   ],
   [
-    "Unity Developer",
-    "GameDev"
+      "HR менеджер",
+      "HR"
+  ],
+  [
+      "QA специалист",
+      "Поддержка"
+  ],
+  [
+      "Jira Administrator",
+      "Поддержка"
+  ],
+  [
+      "Маркетолог",
+      "Маркетинг"
+  ],
+  [
+      "Помощник маркетолога",
+      "Маркетинг"
+  ],
+  [
+      "Контент менеджер",
+      "Production"
+  ],
+  [
+      "Копирайтер",
+      "Production"
+  ],
+  [
+      "Game Designer",
+      "GameDev"
+  ],
+  [
+      "Level-Designer",
+      "GameDev"
+  ],
+  [
+      "UX/UI дизайнер",
+      "GameDev"
+  ],
+  [
+      "3D Artist",
+      "GameDev"
+  ],
+  [
+      "3D animator",
+      "GameDev"
+  ],
+  [
+      "2D artist",
+      "GameDev"
+  ],
+  [
+      "2D concept",
+      "GameDev"
+  ],
+  [
+      "Unity Developer",
+      "GameDev"
+  ],
+  [
+      "3D Rigger",
+      "GameDev"
+  ],
+  [
+      "2D Generalist",
+      "GameDev"
+  ],
+  [
+      "Game Designer",
+      "Playable Ads"
+  ],
+  [
+      "Unity Developer",
+      "Playable Ads"
+  ],
+  [
+      "Level Designer",
+      "Playable Ads"
+  ],
+  [
+      "Production Manager",
+      "Production"
+  ],
+  [
+      "Content Manager",
+      "Production"
   ]
 ]

@@ -1,5 +1,5 @@
 export type VacationType = {
-  id: number,
+  id: number;
   position: Position;
   department: Department;
   description: string;
@@ -9,13 +9,14 @@ export type VacationType = {
     preferred?: string[];
   };
   offer: string[];
+  tags?: string[];
 };
 
 export type VacationCardProps = {
   vacation: VacationType;
 };
 
-export type VacationPreviewProps = Pick<VacationType, 'position'>;
+export type VacationPreviewProps = { vacation: VacationType };
 
 export type VacationPageProps = {
   itemCount?: number;
@@ -37,7 +38,7 @@ export type BlockContentProps = {
   component: 'div' | 'li';
 };
 
-export type Position = string
+export type Position = string;
 
 export type Department =
   | 'Video production'
@@ -53,4 +54,4 @@ export type Department =
 
 export type PositionDepartmentPair = [Position, Department];
 
-export type VacationsResponse = VacationType[]
+export type VacationsResponse = VacationType[];

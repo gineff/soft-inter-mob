@@ -11,6 +11,6 @@ export const SignUpButton: FC<SignUpButtonProps> = ({ sx }) => (
     component={HashLink}
     to="/#Sign-Up"
   >
-    Присоединиться
+    Попасть в команду
   </Button>
 );

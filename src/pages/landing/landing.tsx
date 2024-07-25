@@ -22,7 +22,7 @@ const Landing = () => {
           minWidth: 'sm',
           width: '100%',
           margin: '0 auto',
-          mt: '113px',
+          mt: { lg: '150px', xs: '120px' },
         }}
       >
         <Box

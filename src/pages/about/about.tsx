@@ -51,7 +51,7 @@ export const About = () => {
                 },
               }}
             >
-              <Typography variant="font16" component="p">
+              <Typography variant="font16" component="p" sx={{textAlign: 'justify'}}>
                 <HighlightedText>SOFTINTERMOB</HighlightedText> специализируется
                 на разработке мобильных приложений для различных сегментов
                 AppStore и Google Play, включая игры и утилиты: здоровье,
@@ -63,14 +63,14 @@ export const About = () => {
                 <strong>скачивают более 200 000 человек по всему миру.</strong>
               </Typography>
               <br />
-              <Typography variant="font16" component="p">
+              <Typography variant="font16" component="p" sx={{textAlign: 'justify'}}>
                 GameDev в SOFTINTERMOB — это креативная команда,
                 специализирующаяся на разработке Midcore проектов. Мы создаем
                 увлекательные игры с разнообразными механиками, чтобы предложить
                 нашим пользователям захватывающий игровой опыт.
               </Typography>
               <br />
-              <Typography variant="font16" component="p">
+              <Typography variant="font16" component="p" sx={{textAlign: 'justify'}}>
                 В GameDev мы специализируемся на Midcore играх, объединяющих
                 различные жанры и механики. Наши проекты включают в себя
                 сити-билдинг, ММО стратегии, войны альянсов, комбат механики, а
@@ -79,13 +79,13 @@ export const About = () => {
                 чтобы привлечь широкую аудиторию игроков.
               </Typography>
               <br />
-              <Typography variant="font16" component="p">
+              <Typography variant="font16" component="p" sx={{textAlign: 'justify'}}>
                 <HighlightedText>Наша команда</HighlightedText> состоит более
-                чем из 400 талантливых специалистов, которые объединены общей
-                целью создания уникальных мобильных приложений. Помимо этого,
-                наш холдинг включает в себя более 700 профессионалов, что
-                позволяет нам реализовывать крупные и амбициозные проекты в
-                сфере разработки приложений.
+                чем из <HighlightedText>500 талантливых специалистов</HighlightedText>,
+                которые объединены общей целью создания уникальных мобильных
+                приложений. Помимо этого, наш холдинг включает в себя более <HighlightedText>700
+                профессионалов</HighlightedText>, что позволяет нам реализовывать крупные и
+                амбициозные проекты в сфере разработки приложений.
               </Typography>
             </Box>
           </Box>

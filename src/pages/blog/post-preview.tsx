@@ -68,7 +68,7 @@ export const PostPreview: FC<PostPreviewProps> = ({
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: 5,
+            WebkitLineClamp: 4,
           }}
         >
           {content}

@@ -42,7 +42,6 @@ export const Faq = () => {
           <Box key={title}>
             <GradientDivider />
             <Accordion
-              defaultExpanded
               sx={{
                 'box-shadow': 'none',
               }}

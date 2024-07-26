@@ -39,17 +39,10 @@ const Departments = () => {
           pb: '20px',
           overflowX: 'scroll',
           '&::-webkit-scrollbar': {
-            height: '16px',
+            display: 'none',
           },
-          '&::-webkit-scrollbar-track': {
-            backgroundColor: 'background.paper',
-            borderRadius: '5px',
-          },
-          '&::-webkit-scrollbar-thumb': {
-            backgroundColor: 'background.default',
-            borderRadius: '5px',
-            outline: '1px solid rgb(255,255,255, 0.2)',
-          },
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
         }}
         ref={scrollRef}
       >

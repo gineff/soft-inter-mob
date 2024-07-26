@@ -85,7 +85,7 @@ const Vacations: FC<VacationPageProps> = ({
           display: 'flex',
           flexDirection: 'column',
           padding: '0 50px!important',
-          mt: isVacationRoute ? { lg: '187px', xs: '94px' } : 0,
+          //mt: isVacationRoute ? { lg: '187px', xs: '94px' } : 0,
         }}
       >
         <Anchor id="vacations" />

@@ -40,7 +40,7 @@ export const NavMenu: FC<NavMenuProps> = ({
           display: 'flex',
           flexGrow: 1,
           ml: 4,
-          gap: '20px',
+          gap: '18px',
         }}
       >
         {links}

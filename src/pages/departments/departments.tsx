@@ -5,6 +5,7 @@ import { Box, Button, Container } from '@mui/material';
 import vacationsMap from '@/assets/json/vacationsMap.json';
 import { Link } from 'react-router-dom';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
+import { useEffect } from 'react';
 
 /** ToDo разобраться со шрифтами  HighlightedText*/
 
@@ -13,7 +14,13 @@ const Departments = () => {
     new Set(vacationsMap.map(([, department]) => department))
   );
   const scrollRef = useHorizontalScroll({ speed: 0.8 });
-  
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 127;
+    }
+  }, []);
+
   return (
     <Container
       component="section"
@@ -55,6 +62,7 @@ const Departments = () => {
             alignContent: 'flex-start',
             rowGap: '10px',
             columnGap: '10px',
+            marginLeft: '127px',
           }}
         >
           {departments.map((department, index) => (
@@ -63,9 +71,9 @@ const Departments = () => {
               to={`/${routes.vacations.path}?department=${department}`}
               key={index}
               variant="gradient"
-              sx={{ 
+              sx={{
                 width: '244px',
-                marginLeft: index % 2 ? '-127px' : 0 ,
+                marginLeft: index % 2 ? '-127px' : 0,
               }}
             >
               {department}

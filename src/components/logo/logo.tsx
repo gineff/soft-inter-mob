@@ -5,7 +5,14 @@ import { Icon } from '@components/icon';
 
 export const Logo: FC<LinkProps> = memo(({ sx }) => {
   return (
-    <MuiLink component={HashLink} to={'/'} sx={{ ...sx }}>
+    <MuiLink
+      component={HashLink}
+      to={'/'}
+      sx={{ ...sx }}
+      onClick={() => {
+        window.scrollTo({ top: 0 });
+      }}
+    >
       <Icon type="logo" />
     </MuiLink>
   );

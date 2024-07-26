@@ -155,6 +155,31 @@ export const theme: Theme = createTheme({
             color: '#FFFFFF',
           },
         },
+        {
+          props: { variant: 'gradientWithShadow' },
+          style: {
+            fontSize: '20px',
+            lineHeight: '24px',
+            textTransform: 'none',
+            border: '3px solid transparent',
+            background: `linear-gradient(#100E17, #100E17), linear-gradient( 135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
+            backgroundClip: 'padding-box, border-box',
+            backgroundOrigin: 'padding-box, border-box',
+            borderRadius: '50px',
+            padding: '14px 24px',
+            color: '#FFFFFF',
+            position: 'relative',
+            '&:before': {
+              content: '""',
+              position: 'absolute',
+              background: `linear-gradient( 135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
+              filter: 'blur(5px)',
+              inset: '-5px',
+              borderRadius: '50px',
+              zIndex: -1,
+            },
+          },
+        },
       ],
       styleOverrides: {
         root: ({ ownerState: ovnerState }) => ({

@@ -17,6 +17,16 @@ export const InfoBlock: FC<InfoBlockProps> = memo(({ children }) => {
         backgroundClip: 'padding-box, border-box',
         backgroundOrigin: 'padding-box, border-box',
         borderRadius: '45px',
+        position: 'relative',
+        '&:before': {
+          content: '""',
+          position: 'absolute',
+          background: `linear-gradient( 135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
+          filter: 'blur(5px)',
+          inset: '-5px',
+          borderRadius: '50px',
+          zIndex: -1,
+        },
       }}
     >
       <Typography

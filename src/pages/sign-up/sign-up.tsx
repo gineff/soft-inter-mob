@@ -15,7 +15,7 @@ const GradientEllipse = styled(Box)(() => ({
   borderRadius: '50%',
   transform: 'rotate(22deg)',
   filter: 'opacity(80%) blur(50px)',
-  zIndex: -1,
+  zIndex: -5,
 }));
 
 const SignUp = () => {
@@ -35,6 +35,8 @@ const SignUp = () => {
           maxWidth: '780px',
           backgroundColor: 'background.paper',
           borderRadius: '40px',
+          position: 'relative',
+          zIndex: -1,
         }}
       >
         <Typography

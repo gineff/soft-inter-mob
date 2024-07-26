@@ -140,7 +140,7 @@ const Vacations: FC<VacationPageProps> = ({
             }}
           >
             <Button
-              variant="gradient"
+              variant="gradientWithShadow"
               component={Link}
               to={`/vacations`}
               sx={{

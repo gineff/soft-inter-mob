@@ -7,7 +7,9 @@ export const SignUpForm = () => {
       <TextField type="text" label="Имя" variant="filled"></TextField>
       <TextField type="text" label="Telegram" variant="filled"></TextField>
       <TextField type="text" label="e-mail" variant="filled"></TextField>
-      <Button variant="gradient" sx={{ height: '64px' }}>
+      <Button
+        variant="gradientWithShadow"
+      >
         <Typography variant="font20">Присоединиться</Typography>
       </Button>
     </Box>

@@ -6,7 +6,7 @@ import { SignUpButtonProps } from './types';
 export const SignUpButton: FC<SignUpButtonProps> = ({ sx }) => (
   <Button
     sx={{ ...sx }}
-    variant="gradient"
+    variant="gradientWithShadow"
     smooth
     component={HashLink}
     to="/#Sign-Up"

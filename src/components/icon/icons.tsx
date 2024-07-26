@@ -13,6 +13,7 @@ export const icons = {
   instagram: <InstagramIcon {...defaultProps40} />,
   vkontakte: <Image src="/images/vk.png" {...defaultProps40} />,
   telegram: <Image src="/images/telegram.png" {...defaultProps40} />,
+  telegramLink: <Image src="/images/telegram_link.svg" {...defaultProps32} />,
   email: <Image src="/images/email.png" {...defaultProps32} />,
   phone: <Image src="/images/phone.png" {...defaultProps32} />,
   location: <Image src="/images/location.png" {...defaultProps32} />,

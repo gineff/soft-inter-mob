@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Link,
   Stack,
   Typography,
@@ -20,18 +19,13 @@ export const Footer: FC<FooterProps> = ({ sx }) => {
 
   return (
     <>
-      <Container
-        disableGutters
+      <Box
         component="footer"
         sx={{
           ...sx,
-          //height: { lg: '286px', xs: '376px' },
           padding: { lg: '50px 100px', xs: '40px 20px' },
           backgroundColor: 'background.paper',
           borderRadius: '40px 40px 0 0',
-          maxWidth: 'lg',
-          width: '100%',
-          margin: '0 auto',
         }}
       >
         <Stack
@@ -39,21 +33,21 @@ export const Footer: FC<FooterProps> = ({ sx }) => {
           sx={{
             flexWrap: 'wrap',
             maxHeight: '100%',
+            width: { lg: '1095px', xs: '337px' },
+            margin: '0 auto',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            gap: '15px',
-            [theme.breakpoints.down('lg')]: {
-              width: '337px',
-              margin: '0 auto',
-            },
-            [theme.breakpoints.down('sm')]: {
-              width: 'unset',
-              margin: '0',
-            },
+            gap: '20px',
           }}
         >
-          <Logo sx={{ order: 1, width: '228px', height: '50px' }} />
+          <Logo
+            sx={{
+              display: 'block',
+              width: { lg: '281px', xs: '228px' },
+              height: { lg: '61px', xs: '50px' },
+            }}
+          />
           {/*<Stack
             direction="row"
             spacing={5}
@@ -73,12 +67,12 @@ export const Footer: FC<FooterProps> = ({ sx }) => {
               gap: '20px',
               m: '0!important',
               width: '337px',
-              //alignSelf: { lg: 'flex-end', xs: 'unset' },
               order: { lg: 3, xs: 2 },
             }}
           >
             <Link
               href="mailto:it.recruiter@softintermobile.org"
+              target="_blank"
               underline="none"
               sx={{
                 color: '#fff',
@@ -101,6 +95,31 @@ export const Footer: FC<FooterProps> = ({ sx }) => {
                 </Typography>
               </Box>
             </Link>
+            <Link
+              href="https://t.me/softintermob_HR_manager"
+              target="_blank"
+              underline="none"
+              sx={{
+                color: '#fff',
+                '&:visited': {
+                  color: 'unset',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  display: 'inline-flex',
+                  gap: '20px',
+                  alignItems: 'center',
+                }}
+              >
+                <Icon type="telegramLink" />
+
+                <Typography sx={{ wordBreak: 'break-word' }}>
+                  @softintermob_HR_manager
+                </Typography>
+              </Box>
+            </Link>
             {/*<Box
               sx={{ display: 'inline-flex', gap: '20px', alignItems: 'center' }}
             >
@@ -113,7 +132,7 @@ export const Footer: FC<FooterProps> = ({ sx }) => {
           </Stack>
         </Stack>
         <Anchor id="Contacts" />
-      </Container>
+      </Box>
     </>
   );
 };

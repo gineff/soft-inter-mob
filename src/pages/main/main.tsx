@@ -35,7 +35,7 @@ export const Main = () => {
             />
           }
         >
-          <AdaptiveVideo src="/video/master.m3u8" isHovered={isHovered} />
+          <AdaptiveVideo isHovered={isHovered} />
         </Suspense>
       </Box>
       <InfoPanel

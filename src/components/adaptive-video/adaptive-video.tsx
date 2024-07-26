@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Hls from 'hls.js';
+import React, { useRef, useState } from 'react';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { AdaptiveVideoProps } from './type';
 
 const ControlOpacity = '0.4';
 
 export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
-  src,
   isHovered,
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -15,23 +13,6 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
-  useEffect(() => {
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      if (videoRef.current) {
-        hls.loadSource(src);
-        hls.attachMedia(videoRef.current);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          //videoRef.current?.play();
-        });
-      }
-    } else if (videoRef.current?.canPlayType('application/vnd.apple.mpegurl')) {
-      videoRef.current.src = src;
-      videoRef.current.addEventListener('loadedmetadata', () => {
-        //videoRef.current?.play();
-      });
-    }
-  }, [src]);
 
   const handlePlayPause = () => {
     if (videoRef.current) {
@@ -53,12 +34,12 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
     <Box
       onClick={handlePlayPause}
       sx={{
-        marginTop: { lg: '122px', xs: '74px' },
+        marginTop: '10px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        height: isDesktop ? 'calc(100vh - 122px)' : 'calc(100vh - 74px)',
+        height: 'calc(100vh - 10px)',
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -73,6 +54,7 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
           height: '100%',
           objectFit: 'cover',
         }}
+        src="/video/1080.web.mp4"
       />
       <Box
         sx={{

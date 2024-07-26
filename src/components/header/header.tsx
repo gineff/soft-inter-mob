@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { Suspense, useState } from 'react';
 import { Logo } from '@components/logo';
 import { SignUpButton } from '../sing-up-button/sing-up-button';
@@ -25,7 +25,6 @@ export const Header = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
         sx={{
@@ -74,6 +73,5 @@ export const Header = () => {
           )}
         </Suspense>
       </AppBar>
-    </Box>
   );
 };

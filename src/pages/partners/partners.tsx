@@ -8,7 +8,6 @@ import {
 } from '@mui/material';
 import { Anchor } from '@/components/anchor';
 import { SectionTitle } from '@/components/section-title/section-title';
-import { LottieAnimation } from '@/components/lottie-animation';
 //import google from '@/assets/video/google.lottie';
 //import vs from '@/assets/video/google.json';
 //import { DotLottieReact } from '@lottiefiles/dotlottie-react';
@@ -23,10 +22,7 @@ const technologiesList = [
 
 export const Partners = () => {
   const theme = useTheme();
-  /** ToDo сделать мобильную версию */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
-  /**Todo выделить Title в отдельный компонент*/
 
   return (
     <Container
@@ -38,7 +34,6 @@ export const Partners = () => {
     >
       <Anchor id="Partners" />
       <SectionTitle>Партнеры</SectionTitle>
-      <LottieAnimation src="/video/php.json" />
       <Box
         sx={{
           display: 'flex',
@@ -47,14 +42,33 @@ export const Partners = () => {
           justifyContent: 'center',
         }}
       >
-        {technologiesList.map(({ title, icon }) => (
+        {technologiesList.map(({ title, icon }, index) => (
           <Box key={title}>
             <Card
               sx={{
                 backgroundColor: 'inherit',
+                overflow: 'visible',
               }}
             >
-              <CardMedia component="img" src={`/${icon}`} alt={title} sx={{}} />
+              <CardMedia
+                component="img"
+                src={`/${icon}`}
+                alt={title}
+                sx={{
+                  '@keyframes scaleAnimation': {
+                    '0%': {
+                      transform: 'scale(1)',
+                    },
+                    '10%': {
+                      transform: 'scale(1.4)',
+                    },
+                    '20%, 100%': {
+                      transform: 'scale(1)',
+                    },
+                  },
+                  animation: `scaleAnimation 10s ${index * 2}s infinite`,
+                }}
+              />
             </Card>
           </Box>
         ))}

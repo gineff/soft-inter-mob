@@ -1,12 +1,8 @@
 import { Anchor } from '@/components/anchor';
 import { SectionTitle } from '@/components/section-title/section-title';
-import {
-  Container,
-  Box,
-  Typography,
-} from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 import technologies from '@/assets/json/technologies.json';
-import { LottieAnimation } from '@/components/lottie-animation';
+import { LottieAnimation } from '@/components/scroll-video copy';
 
 export const Technologies = () => {
   return (
@@ -29,7 +25,7 @@ export const Technologies = () => {
         }}
       >
         {technologies.map(({ title, icon }) => (
-          <Box>
+          <Box key={title}>
             <LottieAnimation
               src={icon}
               sx={{

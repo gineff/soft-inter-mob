@@ -121,7 +121,7 @@ const Vacations: FC<VacationPageProps> = ({
                 lg={4}
                 key={index}
                 sx={{
-                  ':nth-child(n+3)': {
+                  ':nth-of-type(n+3)': {
                     display: { xs: itemCount ? 'none' : 'block', lg: 'block' },
                   },
                 }}

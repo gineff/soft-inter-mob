@@ -55,6 +55,7 @@ export const VacationPreview: FC<VacationPreviewProps> = ({
           {tags &&
             tags.map((tag) => (
               <Typography
+                key={tag}
                 component="span"
                 variant="font16"
                 sx={{

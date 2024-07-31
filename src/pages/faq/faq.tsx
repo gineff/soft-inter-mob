@@ -43,7 +43,7 @@ export const Faq = () => {
             <GradientDivider />
             <Accordion
               sx={{
-                'box-shadow': 'none',
+                boxShadow: 'none',
               }}
             >
               <AccordionSummary

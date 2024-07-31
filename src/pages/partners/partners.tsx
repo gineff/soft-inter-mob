@@ -8,6 +8,10 @@ import {
 } from '@mui/material';
 import { Anchor } from '@/components/anchor';
 import { SectionTitle } from '@/components/section-title/section-title';
+import { LottieAnimation } from '@/components/lottie-animation';
+//import google from '@/assets/video/google.lottie';
+//import vs from '@/assets/video/google.json';
+//import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const technologiesList = [
   { title: 'google', icon: 'google.svg' },
@@ -34,7 +38,7 @@ export const Partners = () => {
     >
       <Anchor id="Partners" />
       <SectionTitle>Партнеры</SectionTitle>
-
+      <LottieAnimation src="/video/php.json" />
       <Box
         sx={{
           display: 'flex',
@@ -44,9 +48,7 @@ export const Partners = () => {
         }}
       >
         {technologiesList.map(({ title, icon }) => (
-          <Box
-            key={title}
-          >
+          <Box key={title}>
             <Card
               sx={{
                 backgroundColor: 'inherit',

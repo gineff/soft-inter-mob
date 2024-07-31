@@ -11,7 +11,6 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ sx }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Загружаем анимационные данные
     const loadAnimationData = async () => {
       try {
         const response = await fetch('/public/video/2.json');
@@ -21,8 +20,7 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ sx }) => {
         console.error('Ошибка загрузки анимационных данных:', error);
       }
     };
-    setTimeout(loadAnimationData, 2000);
-    //loadAnimationData();
+    loadAnimationData();
   }, []);
   /*
   useEffect(() => {

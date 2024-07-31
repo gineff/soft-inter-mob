@@ -1,22 +1,22 @@
 [
   {
     "title": "IOS (Swift)",
-    "icon": "swift.png"
+    "icon": "/video/IOS (Swift).json"
   },
   {
     "title": "Android (Kotlin)",
-    "icon": "kotlin.png"
+    "icon": "/video/kotlin.json"
   },
   {
     "title": "Unity C#",
-    "icon": "c.png"
+    "icon": "/video/c.json"
   },
   {
     "title": "PHP",
-    "icon": "php.png"
+    "icon": "/video/php.json"
   },
   {
     "title": "Symfony",
-    "icon": "symphony.png"
+    "icon": "/video/Symfony.json"
   }
 ]

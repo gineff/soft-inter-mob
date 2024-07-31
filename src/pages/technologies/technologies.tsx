@@ -4,20 +4,11 @@ import {
   Container,
   Box,
   Typography,
-  CardContent,
-  CardMedia,
-  Card,
-  //useMediaQuery,
-  //useTheme,
 } from '@mui/material';
 import technologies from '@/assets/json/technologies.json';
+import { LottieAnimation } from '@/components/lottie-animation';
 
 export const Technologies = () => {
-  //const theme = useTheme();
-  /** ToDo сделать мобильную версию */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  //const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
-
   return (
     <Container
       sx={{
@@ -28,7 +19,6 @@ export const Technologies = () => {
     >
       <Anchor id="Technologies" />
       <SectionTitle>Технологии</SectionTitle>
-
       <Box
         sx={{
           display: 'flex',
@@ -39,24 +29,23 @@ export const Technologies = () => {
         }}
       >
         {technologies.map(({ title, icon }) => (
-          <Card key={title} sx={{ backgroundColor: 'inherit' }}>
-            <CardMedia
-              component="img"
-              src={`/images/${icon}`}
-              alt={title}
+          <Box>
+            <LottieAnimation
+              src={icon}
               sx={{
                 width: { md: '200px', xs: '165px' },
+                height: { md: '200px', xs: '165px' },
                 backgroundColor: 'background.paper',
                 borderRadius: '24px',
                 border: '1px solid rgb(255 255 255 / 20%)',
               }}
             />
-            <CardContent sx={{ padding: '12px 0' }}>
+            <Box sx={{ padding: '12px 0' }}>
               <Typography variant="font20" sx={{ textAlign: 'center' }}>
                 {title}
               </Typography>
-            </CardContent>
-          </Card>
+            </Box>
+          </Box>
         ))}
       </Box>
     </Container>

@@ -2,7 +2,7 @@ import { Anchor } from '@/components/anchor';
 import { SectionTitle } from '@/components/section-title/section-title';
 import { Container, Box, Typography } from '@mui/material';
 import technologies from '@/assets/json/technologies.json';
-import { LottieAnimation } from '@/components/scroll-video copy';
+import { LottieAnimation } from '@/components/lottie-animation';
 
 export const Technologies = () => {
   return (

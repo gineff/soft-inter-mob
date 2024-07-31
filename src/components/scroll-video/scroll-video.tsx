@@ -13,7 +13,7 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ sx }) => {
   useEffect(() => {
     const loadAnimationData = async () => {
       try {
-        const response = await fetch('/public/video/2.json');
+        const response = await fetch('/video/2.json');
         const data = await response.json();
         setAnimationData(data);
       } catch (error) {

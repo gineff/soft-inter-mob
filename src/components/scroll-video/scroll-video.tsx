@@ -64,7 +64,8 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ sx }) => {
           src="/images/iphone15_group.png"
           sx={{
             marginTop: '15px',
-            width: '478px',
+            maxWidth: '478px',
+            width: '100%',
             height: '615px',
           }}
         />

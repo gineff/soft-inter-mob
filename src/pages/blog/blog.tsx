@@ -57,6 +57,7 @@ export const Blog = () => {
       <Container
         sx={{
           padding: { xs: '20px!important', lg: '0 50px!important' },
+          overflow: 'hidden',
         }}
       >
         <Anchor id="Blog" />
@@ -72,7 +73,7 @@ export const Blog = () => {
             width: '100%',
             pb: '20px',
 
-            [theme.breakpoints.up('lg')]: {
+            [theme.breakpoints.up('md')]: {
               overflowX: 'scroll',
               flexFlow: 'row  nowrap',
               alignContent: 'flex-start',

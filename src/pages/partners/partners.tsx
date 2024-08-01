@@ -29,7 +29,7 @@ export const Partners = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        padding: '0 50px!important',
+        padding: { xs: '20px!important', lg: '0 50px!important' },
       }}
     >
       <Anchor id="Partners" />

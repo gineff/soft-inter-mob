@@ -31,7 +31,7 @@ export const Faq = () => {
   return (
     <Container
       sx={{
-        padding: '0 50px!important',
+        padding: { xs: '20px!important', lg: '0 50px!important' },
       }}
     >
       <Anchor id="Faq" />

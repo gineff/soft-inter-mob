@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
+  useTheme,
 } from '@mui/material';
 import { useHorizontalScroll } from '@/hooks/useHorizontalScroll';
 import { PostPreview } from './post-preview';
@@ -21,6 +22,7 @@ import { Footer } from '@/components/footer';
 
 export const Blog = () => {
   const { value, setValue } = useAppContext();
+  const theme = useTheme();
   const scrollRef = useHorizontalScroll({ speed: 1.2 });
   const { posts } = value;
   const navigate = useNavigate();
@@ -54,7 +56,7 @@ export const Blog = () => {
     <>
       <Container
         sx={{
-          padding: '0 50px!important',
+          padding: { xs: '20px!important', lg: '0 50px!important' },
         }}
       >
         <Anchor id="Blog" />
@@ -64,19 +66,24 @@ export const Blog = () => {
         <Box
           ref={scrollRef}
           sx={{
-            width: '100%',
-            overflowX: 'scroll',
-            pb: '20px',
             display: 'flex',
-            flexFlow: 'row  nowrap',
-            alignContent: 'flex-start',
-            justifyContent: 'flex-start',
+            flexFlow: 'column  wrap',
             gap: '20px',
-            '&::-webkit-scrollbar': {
-              display: 'none',
+            width: '100%',
+            pb: '20px',
+
+            [theme.breakpoints.up('lg')]: {
+              overflowX: 'scroll',
+              flexFlow: 'row  nowrap',
+              alignContent: 'flex-start',
+              justifyContent: 'flex-start',
+
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
+              msOverflowStyle: 'none',
+              scrollbarWidth: 'none',
             },
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none',
           }}
         >
           {posts.map((post) => (

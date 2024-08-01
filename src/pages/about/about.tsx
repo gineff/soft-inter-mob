@@ -16,7 +16,7 @@ export const About = () => {
     <Container
       component="section"
       sx={{
-        padding: '0 50px!important',
+        padding: { xs: '20px!important', lg: '0 50px!important' },
         borderRadius: '40px',
       }}
     >

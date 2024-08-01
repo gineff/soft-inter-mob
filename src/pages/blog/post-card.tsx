@@ -21,8 +21,8 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
     <Container sx={{ width: { lg: '781px', md: '781px' } }}>
       <Card
         sx={{
-          padding: '70px 60px',
-          borderRadius: '40px' ,
+          padding: { lg: '70px 60px', xs: '70px 0' },
+          borderRadius: '40px',
           backgroundColor: { xs: 'background.default', lg: 'background.paper' },
         }}
       >

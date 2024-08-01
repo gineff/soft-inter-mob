@@ -45,7 +45,7 @@ export const VacationCard: FC<VacationCardProps> = ({
     <Box>
       <Card
         sx={{
-          padding: '70px 60px',
+          padding: { lg: '70px 60px', xs: '70px 0' },
           borderRadius: '40px',
           backgroundColor: { xs: 'background.default', lg: 'background.paper' },
         }}

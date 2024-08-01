@@ -39,8 +39,8 @@ export const PostPreview: FC<PostPreviewProps> = ({
         padding: '0',
         borderRadius: '40px',
         flex: '0 0 auto',
-        width: '370px',
-        height: '407px',
+        width: { md: '370px', xs: '100%' },
+        paddingBottom: '20px',
         cursor: 'pointer',
       }}
       onMouseDown={onMouseDown}

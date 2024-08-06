@@ -42,7 +42,7 @@ export const Partners = () => {
           justifyContent: 'center',
         }}
       >
-        {technologiesList.map(({ title, icon }, index) => (
+        {technologiesList.map(({ title, icon }) => (
           <Box key={title}>
             <Card
               sx={{
@@ -55,18 +55,10 @@ export const Partners = () => {
                 src={`/${icon}`}
                 alt={title}
                 sx={{
-                  '@keyframes scaleAnimation': {
-                    '0%': {
-                      transform: 'scale(1)',
-                    },
-                    '10%': {
-                      transform: 'scale(1.4)',
-                    },
-                    '20%, 100%': {
-                      transform: 'scale(1)',
-                    },
+                  '&:hover': {
+                    transform: 'scale(1.4)',
                   },
-                  animation: `scaleAnimation 10s ${index * 2}s infinite`,
+                  transition: 'transform 0.3s ease',
                 }}
               />
             </Card>

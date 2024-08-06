@@ -3,8 +3,17 @@ import { SectionTitle } from '@/components/section-title/section-title';
 import { Container, Box, Typography } from '@mui/material';
 import technologies from '@/assets/json/technologies.json';
 import { LottieAnimation } from '@/components/lottie-animation';
+import { AnimationStyles } from './type';
 
 export const Technologies = () => {
+
+  const AnimationsStyle: AnimationStyles = {
+    'Unity C#': { padding: '44px' },
+    Symfony: {
+      padding: '44px',
+    },
+  };
+
   return (
     <Container
       sx={{
@@ -27,8 +36,7 @@ export const Technologies = () => {
       >
         {technologies.map(({ title, icon }) => (
           <Box key={title}>
-            <LottieAnimation
-              src={icon}
+            <Box
               sx={{
                 width: { md: '200px', xs: '165px' },
                 height: { md: '200px', xs: '165px' },
@@ -36,7 +44,15 @@ export const Technologies = () => {
                 borderRadius: '24px',
                 border: '1px solid rgb(255 255 255 / 20%)',
               }}
-            />
+            >
+              <LottieAnimation
+                src={icon}
+                sx={{
+                  transform: 'scale(1.2)',
+                  ...AnimationsStyle[title],
+                }}
+              />
+            </Box>
             <Box sx={{ padding: '12px 0' }}>
               <Typography variant="font20" sx={{ textAlign: 'center' }}>
                 {title}

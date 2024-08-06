@@ -9,7 +9,9 @@ export const LottieAnimation: React.FC<LottieAnimationProps> = ({
   placeHolder,
 }) => {
   const lottieRef = useRef<LottieRefCurrentProps>(null);
-  const [animationJson, setAnimationJson] = useState<LottieAnimationData | null | undefined>(null);
+  const [animationJson, setAnimationJson] = useState<
+    LottieAnimationData | null | undefined
+  >(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,6 +26,7 @@ export const LottieAnimation: React.FC<LottieAnimationProps> = ({
           console.error('Error loading animation data:', error);
         } finally {
           setLoading(false);
+
         }
       } else {
         setAnimationJson(src);
@@ -34,15 +37,27 @@ export const LottieAnimation: React.FC<LottieAnimationProps> = ({
     load();
   }, [src]);
 
+  const handleMouseEnter = () => {
+    lottieRef.current?.play();
+  };
+
+  const handleMouseLeave = () => {
+    lottieRef.current?.goToAndPlay(0, true);
+  };
+
   return (
-    <Box sx={sx}>
+    <Box
+      sx={sx}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {loading && placeHolder && placeHolder}
 
       {animationJson && !loading && (
         <Lottie
-        animationData={animationJson}
-        autoplay
-        loop
+          animationData={animationJson}
+          autoplay={false}
+          loop={false}
           lottieRef={lottieRef}
         />
       )}

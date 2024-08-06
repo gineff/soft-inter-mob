@@ -3,6 +3,8 @@ import { createTheme, Theme } from '@mui/material/styles';
 export const majesticPurple = '#6B32E7';
 export const vividBurgundy = '#84103B';
 export const deepIndigo = '#3C1C81';
+export const headerHeightLg = '113px';
+export const headerHeightXs = '64px';
 const backgroundColor = '#010101';
 
 const mixinFont16 = {

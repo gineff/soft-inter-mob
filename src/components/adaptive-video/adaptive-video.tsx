@@ -4,15 +4,13 @@ import { AdaptiveVideoProps } from './type';
 
 const ControlOpacity = '0.4';
 
-export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
-  isHovered,
-}) => {
+export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({ isHovered }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const isUpTablet = useMediaQuery(theme.breakpoints.up('md'));
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-
 
   const handlePlayPause = () => {
     if (videoRef.current) {
@@ -34,28 +32,29 @@ export const AdaptiveVideo: React.FC<AdaptiveVideoProps> = ({
     <Box
       onClick={handlePlayPause}
       sx={{
-        marginTop: '10px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        height: 'calc(100vh - 10px)',
+        height: '100%',
         overflow: 'hidden',
         position: 'relative',
       }}
     >
       <video
         ref={videoRef}
+        poster="/images/poster.png"
         autoPlay
         muted
         loop
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
+          objectFit: isUpTablet ? 'contain' : 'cover',
         }}
-        src="/video/1080.web.mp4"
-      />
+      >
+        <source src="/video/1080.web.mp4" type="video/mp4" />
+      </video>
       <Box
         sx={{
           position: 'absolute',

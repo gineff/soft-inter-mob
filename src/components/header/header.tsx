@@ -7,6 +7,7 @@ import { SignUpButton } from '../sing-up-button/sing-up-button';
 import { NavMenu, NavToggler } from '../nav-menu';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Icon } from '../icon';
+import { headerHeightLg, headerHeightXs } from '@/theme/theme';
 export const Header = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export const Header = () => {
         position="fixed"
         sx={{
           width: '100%',
-          height: { lg: '113px', xs: 'auto' },
+          height: { lg: headerHeightLg, xs: 'auto' },
           backgroundColor: 'background.paper',
           borderRadius: '0 0 40px 40px',
           transition: 'height 0.3s ease',
@@ -44,7 +45,7 @@ export const Header = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             height: '100%',
-            minHeight: '64px',
+            minHeight: headerHeightXs,
             px: '50px',
           }}
         >

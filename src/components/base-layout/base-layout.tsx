@@ -4,6 +4,7 @@ import { useScrollToTop } from '@/hooks/use-scroll-to-top';
 import { Header } from '../header';
 import { Footer } from '../footer';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { headerHeightLg, headerHeightXs } from '@/theme/theme';
 
 export const BaseLayout: FC = () => {
   const { pathname } = useLocation();
@@ -18,11 +19,11 @@ export const BaseLayout: FC = () => {
         component="main"
         sx={{
           marginTop: {
-            lg: '113px',
-            xs: '64px',
-            minHeight: isDesktop ? 'calc(100vh - 113px)' : 'calc(100vh - 64px)',
-            ...theme.mixins.centredCol,
+            lg: headerHeightLg,
+            xs: headerHeightXs,
           },
+          minHeight: isDesktop ? `calc(100vh - ${headerHeightLg})` : `calc(100vh - ${headerHeightXs})`,
+          ...theme.mixins.centredCol,
         }}
       >
         <Box sx={{ flexGrow: 1, width: '100%' }}>

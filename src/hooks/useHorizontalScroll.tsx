@@ -19,7 +19,7 @@ export function useHorizontalScroll<T extends HTMLElement>({
       e.preventDefault();
       el.scrollTo({
         left: el.scrollLeft + e.deltaY * speed,
-        behavior: 'instant',
+        behavior: 'smooth',
       });
     };
 

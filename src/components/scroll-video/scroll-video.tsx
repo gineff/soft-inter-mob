@@ -22,14 +22,14 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ sx }) => {
     };
     loadAnimationData();
   }, []);
-  /*
+
   useEffect(() => {
     const handleScroll = () => {
       if (!lottieRef.current || !containerRef.current || !animationData) return;
 
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const topOffset = windowHeight - rect.top - 100;
+      const topOffset = windowHeight - rect.top - 200;
 
       if (topOffset < 0 || topOffset > windowHeight) return;
 
@@ -48,15 +48,13 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ sx }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [animationData]);
-*/
 
   return (
     <Box sx={sx} ref={containerRef}>
       {animationData ? (
         <Lottie
           animationData={animationData}
-          autoplay
-          loop={true}
+          loop={false}
           lottieRef={lottieRef}
         />
       ) : (

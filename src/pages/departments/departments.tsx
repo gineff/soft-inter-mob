@@ -13,7 +13,7 @@ const Departments = () => {
   const departments = Array.from(
     new Set(vacationsMap.map(([, department]) => department))
   );
-  const scrollRef = useHorizontalScroll({ speed: 0.8 });
+  const scrollRef = useHorizontalScroll({ speed: 1.4 });
 
   useEffect(() => {
     if (scrollRef.current) {

@@ -23,7 +23,7 @@ import { Footer } from '@/components/footer';
 export const Blog = () => {
   const { value, setValue } = useAppContext();
   const theme = useTheme();
-  const scrollRef = useHorizontalScroll({ speed: 1.2 });
+  const scrollRef = useHorizontalScroll({ speed: 1.6 });
   const { posts } = value;
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -78,12 +78,19 @@ export const Blog = () => {
               flexFlow: 'row  nowrap',
               alignContent: 'flex-start',
               justifyContent: 'flex-start',
-
               '&::-webkit-scrollbar': {
-                display: 'none',
+                height: '14px',
               },
-              msOverflowStyle: 'none',
-              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar-track': {
+                backgroundColor: '#000',
+                borderRadius: '5px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background:
+                  'linear-gradient(90deg, #3C1C81 2.86%, #6B32E7 51.43%, #84113E 99.99%, #84103B 100%)',
+                borderRadius: '5px',
+                outline: '1px solid rgb(255,255,255, 0.2)',
+              },
             },
           }}
         >

@@ -36,7 +36,6 @@ const SignUp = () => {
           backgroundColor: 'background.paper',
           borderRadius: '40px',
           position: 'relative',
-          zIndex: -1,
         }}
       >
         <Typography

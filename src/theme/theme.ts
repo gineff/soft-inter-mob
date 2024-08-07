@@ -75,26 +75,32 @@ export const theme: Theme = createTheme({
           ...mixinFont16,
           backgroundColor: '#FFF',
           borderRadius: '50px',
+          paddingLeft: '14px',
+
           '& label': {
             paddingLeft: '28px',
           },
-          "& .MuiFilledInput-underline:after": {
-            borderBottomColor: 'transparent'
+          '& .MuiFilledInput-underline:after': {
+            borderBottomColor: 'transparent!important',
           },
           '& .MuiFilledInput-root': {
+            backgroundColor: 'transparent!important',
             '&:before': {
-              borderBottomColor: 'transparent',
+              borderBottomColor: 'transparent!important',
             },
             '&:hover:not(.Mui-disabled)::before': {
-              borderBottomColor: 'transparent',
+              borderBottomColor: 'transparent!important',
             },
             '& .Mui-focused': {
-              borderBottomColor: 'transparent',
+              borderBottomColor: 'transparent!important',
             },
           },
           '& .MuiFilledInput-input': {
             color: '#000',
             paddingLeft: '28px',
+          },
+          '& p.Mui-error': {
+            paddingLeft: '14px',
           },
         },
       },
@@ -148,7 +154,7 @@ export const theme: Theme = createTheme({
             fontSize: '20px',
             lineHeight: '24px',
             textTransform: 'none',
-            border: '3px solid transparent',
+            border: '3px solid transparent!important',
             background: `linear-gradient(#100E17, #100E17), linear-gradient( 135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
             backgroundClip: 'padding-box, border-box',
             backgroundOrigin: 'padding-box, border-box',
@@ -163,7 +169,7 @@ export const theme: Theme = createTheme({
             fontSize: '20px',
             lineHeight: '24px',
             textTransform: 'none',
-            border: '3px solid transparent',
+            border: '3px solid transparent!important',
             background: `linear-gradient(#100E17, #100E17), linear-gradient( 135deg, ${vividBurgundy}, ${majesticPurple}, ${deepIndigo})`,
             backgroundClip: 'padding-box, border-box',
             backgroundOrigin: 'padding-box, border-box',
@@ -184,8 +190,8 @@ export const theme: Theme = createTheme({
         },
       ],
       styleOverrides: {
-        root: ({ ownerState: ovnerState }) => ({
-          ...(ovnerState.className?.includes('MuiButton-active') && {
+        root: ({ ownerState }) => ({
+          ...(ownerState.className?.includes('MuiButton-active') && {
             '&:hover': {
               backgroundColor: '#F0F0FF',
               color: `${backgroundColor}!important`,
@@ -193,8 +199,16 @@ export const theme: Theme = createTheme({
           }),
           '&.MuiButton-active': {
             '&:hover': {
+              background: 'none',
               backgroundColor: '#F0F0FF',
               color: `${backgroundColor}!important`,
+            },
+          },
+          '&.Mui-disabled': {
+            color: 'rgb(255,255,255, 0.4)',
+            borderColor: 'grey!important',
+            '&:before': {
+              display: 'none',
             },
           },
           ...mixinFont16,

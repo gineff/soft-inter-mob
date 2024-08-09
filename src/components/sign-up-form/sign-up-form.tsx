@@ -32,8 +32,6 @@ export const SignUpForm = () => {
     onSubmit: handleSubmit,
   });
 
-  console.log('formik.isSubmitting', formik.isSubmitting);
-
   return (
     <Box
       component="form"

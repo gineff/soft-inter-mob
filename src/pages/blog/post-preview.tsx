@@ -23,7 +23,6 @@ export const PostPreview: FC<PostPreviewProps> = ({
 
   const onMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
     const clickTime = Date.now() - mouseDownTime;
-    console.log(Math.abs(e.pageX - startX));
     if (
       clickTime > clickThreshold ||
       Math.abs(e.pageX - startX) > moveThreshold

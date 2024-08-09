@@ -29,7 +29,7 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
         <CardHeader title={title} sx={{ px: 0 }} />
         <CardMedia
           component="img"
-          src={`/${image}`}
+          src={`${image}`}
           alt={title}
           sx={{ height: 'auto' }}
         />

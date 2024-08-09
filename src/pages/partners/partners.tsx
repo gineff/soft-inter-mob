@@ -12,12 +12,12 @@ import { SectionTitle } from '@/components/section-title/section-title';
 //import vs from '@/assets/video/google.json';
 //import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-const technologiesList = [
-  { title: 'google', icon: 'google.svg' },
-  { title: 'yandex', icon: 'yandex.svg' },
-  { title: 'praktikum', icon: 'praktikum.svg' },
-  { title: 'adjust', icon: 'adjust.svg' },
-  { title: 'pooshwoosh', icon: 'pooshwoosh.svg' },
+const partnersList = [
+  { title: 'google', icon: '/images/google.svg' },
+  { title: 'yandex', icon: '/images/yandex.svg' },
+  { title: 'praktikum', icon: '/images/praktikum.svg' },
+  { title: 'adjust', icon: '/images/adjust.svg' },
+  { title: 'pooshwoosh', icon: '/images/pooshwoosh.svg' },
 ];
 
 export const Partners = () => {
@@ -42,7 +42,7 @@ export const Partners = () => {
           justifyContent: 'center',
         }}
       >
-        {technologiesList.map(({ title, icon }) => (
+        {partnersList.map(({ title, icon }) => (
           <Box key={title}>
             <Card
               sx={{
@@ -52,7 +52,7 @@ export const Partners = () => {
             >
               <CardMedia
                 component="img"
-                src={`/${icon}`}
+                src={`${icon}`}
                 alt={title}
                 sx={{
                   '&:hover': {
